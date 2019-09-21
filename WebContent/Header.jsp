@@ -28,14 +28,174 @@
 							History</a></li>
 					<li class="prnt"><a href="issuetickets.php">Issue Tickets</a></li>
 				</ul>
+			</c:otherwise>
+		</c:choose>
+		<c:choose>
+			<c:when test="${uEmail eq null}">
+
+				<!-- signup -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<section>
+								<div class="modal-body modal-spa">
+									<div class="login-grids">
+										<div class="login">
+											<div class="login-left">
+												<ul>
+													<li><a class="fb" href="#"><i></i>Facebook</a></li>
+													<li><a class="goog" href="#"><i></i>Google</a></li>
+
+												</ul>
+											</div>
+											<div class="login-right">
+												<form name="signup" method="post">
+													<h3>Create your account</h3>
+													<input type="text" name="fnameRegister"
+														placeholder="Full Name" Style="text-transform: capitalize">
+													<small class="form-text text-danger error"></small> <input
+														type="text" name="mobileRegister"
+														placeholder="Mobile Number" maxlength="10"> <small
+														class="form-text text-danger error"></small> <input
+														type="text" placeholder="Email id" name="emailRegister"
+														id="emailRegoster" autocomplete="off"> <small
+														class="form-text text-danger error"></small> <input
+														type="password" name="passwordRegister"
+														placeholder="Password" maxlength="20"> <input
+														type="password" name="password-repeatRegister"
+														placeholder="Password (repeat)" maxlength="20"> <small
+														class="form-text text-danger error"></small> <input
+														type="submit" name="submit" id="submit" value="REGISTER">
+												</form>
+											</div>
+											<div class="clearfix"></div>
+										</div>
+										<p>
+											By logging in you agree to our <a href="page.php?type=terms">Terms
+												and Conditions</a> and <a href="page.php?type=privacy">Privacy
+												Policy</a>
+										</p>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+				<script type="text/javascript" src="js/Register.js"></script>
+				<!-- //signu -->
+				<!-- signin -->
+
+				<div class="modal fade" id="myModal4" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content modal-info">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body modal-spa">
+								<div class="login-grids">
+									<div class="login">
+										<div class="login-left">
+											<ul>
+												<li><a class="fb" href="#"><i></i>Facebook</a></li>
+												<li><a class="goog" href="#"><i></i>Google</a></li>
+
+											</ul>
+										</div>
+										<div class="login-right">
+											<form action="Login" method="post">
+												<h3>Signin with your account</h3>
+												<input type="text" name="emailLogin" id="email"
+													placeholder="Enter your Email"> <small
+													class="form-text text-danger error"></small> <input
+													type="password" name="passwordLogin" id="password"
+													placeholder="Password"> <small
+													class="form-text text-danger error"></small>
+												<h4>
+													<a href="forgot-password.php">Forgot password</a>
+												</h4>
+												<input type="submit" name="signin" value="SIGNIN">
+											</form>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+									<p>
+										By logging in you agree to our <a href="page.php?type=terms">Terms
+											and Conditions</a> and <a href="page.php?type=privacy">Privacy
+											Policy</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<script type="text/javascript" src="js/SignIn.js"></script>
+				<!-- //signin -->
+				<!-- write us -->
+				<div class="modal fade" id="myModal3" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<section>
+								<form name="help" method="post">
+									<div class="modal-body modal-spa">
+										<div class="writ">
+											<h4>HOW CAN WE HELP YOU</h4>
+											<ul>
+
+												<li class="na-me"><select id="country" name="issue"
+													class="frm-field required sect" required="">
+														<option value="">Select Issue</option>
+														<option value="Booking Issues">Booking Issues</option>
+														<option value="Cancellation">Cancellation</option>
+														<option value="Refund">Refund</option>
+														<option value="Other">Other</option>
+												</select></li>
+
+												<li class="descrip"><input class="special" type="text"
+													placeholder="description" name="description" required="">
+												</li>
+
+											</ul>
+											<div class="sub-bn">
+												<form>
+													<button type="submit" name="submit" class="subbtn">Submit</button>
+												</form>
+											</div>
+										</div>
+									</div>
+								</form>
+							</section>
+						</div>
+					</div>
+				</div>
+			</c:when>
+			<c:otherwise>
 				<ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s">
 					<li class="tol">Welcome :</li>
 					<li class="sig">{uEmail}</li>
 					<li class="sigi"><a href="logout.php">/Logout</a></li>
 				</ul>
-				<div class="clearfix"></div>
 			</c:otherwise>
 		</c:choose>
+
 	</div>
 </div>
 <!--- /top-header ---->
@@ -49,9 +209,7 @@
 		<div class="lock fadeInDown animated" data-wow-delay=".5s">
 			<i class="fa fa-lock"></i> <span class="securetxt">SAFE &amp;
 				SECURE</span>
-			<div class="clearfix"></div>
 		</div>
-		<div class="clearfix"></div>
 	</div>
 </div>
 <!--- /header ---->
@@ -61,7 +219,7 @@
 		<div class="navigation">
 			<nav class="navbar navbar-default navbar-expand-md">
 				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header d-none d-lg-block">
+				<div class="navbar-header" style="display: none">
 					<button class="navbar-toggler" data-toggle="collapse"
 						data-target="#navcol-1">
 						<span class="sr-only">Toggle navigation</span> <span

@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 /**
  * Servlet Filter implementation class UserFilter
  */
@@ -44,9 +45,9 @@ public class UserFilter implements Filter {
 		if (session.getAttribute("User") == null) {
 			httpResponse.sendRedirect("Index?content=login");
 		} else {
-			httpResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //HTTP 1.1
-			httpResponse.setHeader("Progma", "no-cache"); //HTTP 1.0
-			httpResponse.setHeader("Expires", "0"); //Proxies
+			httpResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1
+			httpResponse.setHeader("Progma", "no-cache"); // HTTP 1.0
+			httpResponse.setHeader("Expires", "0"); // Proxies
 			chain.doFilter(request, httpResponse);
 		}
 

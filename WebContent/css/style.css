@@ -3118,10 +3118,7 @@ ul.nav.navbar-nav li a {
 	}
 	.banner {
 		min-height: 250px;
-	
-}
-
-@media ( max-width :736px) {
+	}
 	.footer-btm li {
 		display: block;
 		margin: 10px 0;

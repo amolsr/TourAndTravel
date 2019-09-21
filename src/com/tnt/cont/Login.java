@@ -30,7 +30,7 @@ public class Login extends HttpServlet {
 		MessageDigest md;
 		try {
 			md = MessageDigest.getInstance("SHA-256");
-			md.update(request.getParameter("password").getBytes());
+			md.update(request.getParameter("pass").getBytes());
 			BigInteger Hash = new BigInteger(1, md.digest());
 			String HashWord = Hash.toString(16);
 			while (HashWord.length() < 32) {

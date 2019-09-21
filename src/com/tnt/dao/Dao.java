@@ -3,13 +3,12 @@ package com.tnt.dao;
 import java.sql.*;
 
 public class Dao {
-	static String url = "jdbc:mysql://SG-tnt-1138-master.servers.mongodirector.com:3306/tnt";
 	private static Connection con;
 
 	public static Connection getcon() throws SQLException {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection(url, "sgroot", "YtnHaozxhC&WGX1A");
+			Class.forName(DBIntializer.DRIVER);
+			con = DriverManager.getConnection(DBIntializer.CON_STRING, DBIntializer.USERNAME, DBIntializer.PASSWORD);
 		} catch (Exception e) {
 			System.out.println(e);
 		}

@@ -7,7 +7,10 @@ public class Menu {
 	HashMap<String, String> pages = new HashMap<>();
 
 	public String getPage(String content) {
-		pages.put("home", "Welcome.jsp");
+		pages.put("home", "Home.jsp");
+		pages.put("package", "Package.jsp");
+		pages.put("home", "Home.jsp");
+		pages.put("home", "Home.jsp");
 		pages.put("login", "LogIn.jsp");
 		pages.put("register", "Register.jsp");
 		pages.put("contact", "ContactUs.jsp");

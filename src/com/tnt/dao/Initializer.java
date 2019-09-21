@@ -34,9 +34,9 @@ public class Initializer implements ServletContextListener {
 	 */
 	public void contextInitialized(ServletContextEvent sce) {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://SG-tnt-1138-master.servers.mongodirector.com:3306/tnt", "sgroot", "YtnHaozxhC&WGX1A");
+			Class.forName(DBIntializer.DRIVER);
+			Connection con = DriverManager.getConnection(DBIntializer.CON_STRING, DBIntializer.USERNAME,
+					DBIntializer.PASSWORD);
 
 			String query = "create table User(fname varchar(45) not null,lname varchar(45),email varchar(45), pass varchar(200), CONSTRAINT PK PRIMARY KEY(fname));";
 			PreparedStatement ps = con.prepareStatement(query);
