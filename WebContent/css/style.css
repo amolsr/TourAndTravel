@@ -161,7 +161,7 @@ i.fa.fa-lock {
 /*-- /header --*/
 /*-- banner --*/
 .banner {
-	background: url(../images/Banner.jpg) no-repeat;
+	background: url(../img/Banner.jpg) no-repeat;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -201,7 +201,7 @@ i.fa.fa-lock {
 }
 
 .date {
-	background: url(../images/date-icon.png) no-repeat 95.5% 45% #fff;
+	background: url(../img/date-icon.png) no-repeat 95.5% 45% #fff;
 	cursor: pointer;
 }
 
@@ -524,7 +524,7 @@ i.fa.fa-truck, i.fa.fa-user, i.fa.fa-ticket {
 /*-- /footer --*/
 /*-- bus --*/
 .banner-1 {
-	background: url(../images/3.jpg) no-repeat;
+	background: url(../img/3.jpg) no-repeat;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -741,7 +741,7 @@ ul.first {
 .ab-rt ul li a {
 	font-size: 1em;
 	color: #999;
-	background: url(../images/dot.png) no-repeat 0px 2px;
+	background: url(../img/dot.png) no-repeat 0px 2px;
 	padding: 0px 0px 0px 30px;
 }
 
@@ -905,7 +905,7 @@ i.fa.fa-gift {
 /*-- /offers-1 --*/
 /*-- hotels --*/
 .banner-2 {
-	background: url(../images/6.jpg) no-repeat;
+	background: url(../img/6.jpg) no-repeat;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -915,7 +915,7 @@ i.fa.fa-gift {
 }
 
 .banner-3 {
-	background: url(../images/6.jpg) no-repeat;
+	background: url(../img/6.jpg) no-repeat;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -975,7 +975,7 @@ i.fa.fa-gift {
 	-moz-box-shadow: 1px 1px 2px #e6e6e6;
 	box-shadow: 1px 1px 2px #e6e6e6;
 	cursor: default;
-	background: #fff url(../images/bgimg.jpg) no-repeat center center;
+	background: #fff url(../img/bgimg.jpg) no-repeat center center;
 }
 
 .view1 .mask, .view1 .content {
@@ -1316,7 +1316,7 @@ span.glyphicon.glyphicon-eye-open, span.glyphicon.glyphicon-thumbs-up {
 /*-- /details --*/
 /*-- rooms --*/
 .rooms-top {
-	background: url(../images/7.jpg) no-repeat;
+	background: url(../img/7.jpg) no-repeat;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -1434,7 +1434,7 @@ span.glyphicon.glyphicon-eye-open, span.glyphicon.glyphicon-thumbs-up {
 .single-bottom input[type="checkbox"]:checked+label span:first-child:before
 	{
 	content: "";
-	background: url(../images/mark1.png) no-repeat;
+	background: url(../img/mark1.png) no-repeat;
 	position: absolute;
 	left: -1px;
 	top: -1px;
@@ -1847,7 +1847,7 @@ button.subbtn:focus, button.subbtn:hover {
 }
 
 .login-left ul li a.fb i {
-	background: url(../images/social.png) no-repeat -45px -1px;
+	background: url(../img/social.png) no-repeat -45px -1px;
 	width: 24px;
 	height: 23px;
 	display: inline-block;
@@ -1855,7 +1855,7 @@ button.subbtn:focus, button.subbtn:hover {
 }
 
 .login-left ul li a.goog i {
-	background: url(../images/social.png) no-repeat -84px 0px;
+	background: url(../img/social.png) no-repeat -84px 0px;
 	width: 26px;
 	height: 23px;
 	display: inline-block;
@@ -1863,7 +1863,7 @@ button.subbtn:focus, button.subbtn:hover {
 }
 
 .login-left ul li a.linkin i {
-	background: url(../images/social.png) no-repeat -3px 0px;
+	background: url(../img/social.png) no-repeat -3px 0px;
 	width: 25px;
 	height: 23px;
 	display: inline-block;
@@ -2233,7 +2233,7 @@ ul.paging {
 .categories ul li {
 	padding-left: 2em;
 	margin-bottom: 1em;
-	background: url(../images/dot.png) no-repeat 0px 2px;
+	background: url(../img/dot.png) no-repeat 0px 2px;
 	list-style-type: none;
 }
 
@@ -2429,7 +2429,7 @@ ul.paging {
 .footer-social-icons ul li a {
 	width: 30px;
 	height: 30px;
-	background: url('../images/img-sprite.png') no-repeat 0px 0px;
+	background: url('../img/img-sprite.png') no-repeat 0px 0px;
 	display: inline-block;
 	position: relative;
 }
