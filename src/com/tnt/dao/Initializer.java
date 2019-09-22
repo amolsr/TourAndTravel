@@ -3,6 +3,7 @@ package com.tnt.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -37,13 +38,10 @@ public class Initializer implements ServletContextListener {
 			Class.forName(DBIntializer.DRIVER);
 			Connection con = DriverManager.getConnection(DBIntializer.CON_STRING, DBIntializer.USERNAME,
 					DBIntializer.PASSWORD);
-
-			String query = "create table User(fname varchar(45) not null,lname varchar(45),email varchar(45), pass varchar(200), CONSTRAINT PK PRIMARY KEY(fname));";
-			PreparedStatement ps = con.prepareStatement(query);
-			ps.executeUpdate();
-
-			System.out.println(query);
-
+			Statement stmt = con.createStatement();
+			String table = "create table User(fname varchar(45) not null,mobile varchar(10),email varchar(45), pass varchar(200), CONSTRAINT PK PRIMARY KEY(email));";
+			stmt.executeUpdate(table);
+			System.out.println(table);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

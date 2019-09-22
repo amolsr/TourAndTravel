@@ -43,7 +43,7 @@ public class UserFilter implements Filter {
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		// pass the request along the filter chain
 		if (session.getAttribute("User") == null) {
-			httpResponse.sendRedirect("Index?content=login");
+			httpResponse.sendRedirect("Index");
 		} else {
 			httpResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1
 			httpResponse.setHeader("Progma", "no-cache"); // HTTP 1.0

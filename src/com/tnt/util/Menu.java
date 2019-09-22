@@ -11,7 +11,6 @@ public class Menu {
 		pages.put("package", "Package.jsp");
 		pages.put("home", "Home.jsp");
 		pages.put("home", "Home.jsp");
-		pages.put("login", "LogIn.jsp");
 		pages.put("register", "Register.jsp");
 		pages.put("contact", "ContactUs.jsp");
 		pages.put("about", "AboutUs.jsp");

@@ -26,8 +26,8 @@ public class Register extends HttpServlet {
 			throws ServletException, IOException {
 		UserDao U = UserDao.getU();
 		User u = new User();
-		u.setFname(request.getParameter("first"));
-		u.setLname(request.getParameter("last"));
+		u.setFname(request.getParameter("name"));
+		u.setMobile(request.getParameter("mobile"));
 		u.setEmail(request.getParameter("email"));
 		MessageDigest md;
 		try {
@@ -42,7 +42,7 @@ public class Register extends HttpServlet {
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-		if (!((u.getFname().equals("")) || (u.getLname().equals("")) || (u.getEmail().equals(""))
+		if (!((u.getFname().equals("")) || (u.getMobile().equals("")) || (u.getEmail().equals(""))
 				|| (u.getPass().equals("")))) {
 			int i = U.create(u);
 			if (i > 0) {

@@ -2,13 +2,13 @@ package com.tnt.model;
 
 public class User {
 	private String fname;
-	private String lname;
+	private String mobile;
 	private String email;
 	private String pass;
 
 	public User() {
 		this.fname = "";
-		this.lname = "";
+		this.mobile = "";
 		this.email = "";
 		this.pass = "";
 	}
@@ -21,12 +21,12 @@ public class User {
 		this.fname = fname;
 	}
 
-	public String getLname() {
-		return lname;
+	public String getMobile() {
+		return mobile;
 	}
 
-	public void setLname(String lname) {
-		this.lname = lname;
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 
 	public String getEmail() {

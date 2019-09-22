@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +27,7 @@ public class Login extends HttpServlet {
 		MessageDigest md;
 		try {
 			md = MessageDigest.getInstance("SHA-256");
-			md.update(request.getParameter("pass").getBytes());
+			md.update(request.getParameter("password").getBytes());
 			BigInteger Hash = new BigInteger(1, md.digest());
 			String HashWord = Hash.toString(16);
 			while (HashWord.length() < 32) {
@@ -41,19 +38,12 @@ public class Login extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		UserDao dao = new UserDao();
+		UserDao dao = UserDao.getU();
 		try {
-			if (dao.log(u.getEmail(), u.getPass())) {
-				PreparedStatement st = Dao.getcon().prepareStatement("select * from User where email=? and pass=?");
-				st.setString(1, u.getEmail());
-				st.setString(2, u.getPass());
-				ResultSet rs = st.executeQuery();
-				while (rs.next()) {
-					u.setFname(rs.getString("fname"));
-					u.setLname(rs.getString("lname"));
-				}
+			String email = dao.log(u.getEmail(), u.getPass());
+			if (email != null) {
 				HttpSession session = request.getSession();
-				session.setAttribute("User", u);
+				session.setAttribute("Email", email);
 				response.getWriter().print("Success");
 			} else {
 				response.getWriter().print("Invalid User");

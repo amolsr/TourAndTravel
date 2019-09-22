@@ -4,7 +4,7 @@
 <div class="top-header">
 	<div class="container">
 		<c:choose>
-			<c:when test="${uEmail eq null}">
+			<c:when test="${Email eq null}">
 				<ul class="tp-hd-lft wow fadeInLeft animated" data-wow-delay=".5s">
 					<li class="hm"><a href="index.php"><i class="fa fa-home"></i></a></li>
 					<li class="hm"><a href="admin/index.php">Admin Login</a></li>
@@ -31,7 +31,7 @@
 			</c:otherwise>
 		</c:choose>
 		<c:choose>
-			<c:when test="${uEmail eq null}">
+			<c:when test="${Email eq null}">
 
 				<!-- signup -->
 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -190,8 +190,8 @@
 			<c:otherwise>
 				<ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s">
 					<li class="tol">Welcome :</li>
-					<li class="sig">{uEmail}</li>
-					<li class="sigi"><a href="logout.php">/Logout</a></li>
+					<li class="sig">${Email}</li>
+					<li class="sigi"><a href="./Logout">/ Log Out</a></li>
 				</ul>
 			</c:otherwise>
 		</c:choose>
@@ -231,7 +231,7 @@
 				<div class="collapse navbar-collapse nav-wil" id="navcol-1">
 					<nav class="cl-effect-1">
 						<c:choose>
-							<c:when test="${uEmail eq null}">
+							<c:when test="${Email eq null}">
 								<ul class="nav navbar-nav">
 									<li><a href="Index?content=home">Home</a></li>
 									<li><a href="Index?content=about">About</a></li>
