@@ -26,10 +26,10 @@
 <!--//end-animate-->
 </head>
 <body>
-	<%@ include file="Header.jsp"%>
+	<jsp:include page="Header.jsp"></jsp:include>
 
-	<%@ include file="Content.jsp"%>
+	<jsp:include page="Content.jsp"></jsp:include>
 
-	<%@ include file="Footer.jsp"%>
+	<jsp:include page="Footer.jsp"></jsp:include>
 </body>
 </html>

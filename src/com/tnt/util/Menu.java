@@ -9,11 +9,16 @@ public class Menu {
 	public String getPage(String content) {
 		pages.put("home", "Home.jsp");
 		pages.put("package", "Package.jsp");
-		pages.put("home", "Home.jsp");
-		pages.put("home", "Home.jsp");
 		pages.put("register", "Register.jsp");
+		pages.put("create", "Create.jsp");
 		pages.put("contact", "ContactUs.jsp");
 		pages.put("about", "AboutUs.jsp");
+		pages.put("tour", "ManageTour.jsp");
+		pages.put("user", "ManageUser.jsp");
+		pages.put("privacy", "Privacy.jsp");
+		pages.put("terms", "Terms.jsp");
+		pages.put("help", "Help.jsp");
+		pages.put("enquiry", "Enquiry.jsp");
 		return pages.get(content);
 	}
 

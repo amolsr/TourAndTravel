@@ -42,7 +42,7 @@ public class UserFilter implements Filter {
 		HttpSession session = ((HttpServletRequest) request).getSession(false);
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		// pass the request along the filter chain
-		if (session.getAttribute("User") == null) {
+		if (session.getAttribute("Email") == null) {
 			httpResponse.sendRedirect("Index");
 		} else {
 			httpResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1
@@ -55,7 +55,7 @@ public class UserFilter implements Filter {
 
 	/**
 	 * @see Filter#init(FilterConfig)
-	 */
+	 */     
 	public void init(FilterConfig fConfig) throws ServletException {
 		// TODO Auto-generated method stub
 	}

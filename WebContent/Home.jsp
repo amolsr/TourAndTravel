@@ -167,7 +167,7 @@
 
 
 		<div>
-			<a href="package-list.php" class="view">View More Packages</a>
+			<a href="Index?content=package" class="view">View More Packages</a>
 		</div>
 	</div>
 	<div class="clearfix"></div>

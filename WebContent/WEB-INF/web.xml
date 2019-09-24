@@ -15,11 +15,11 @@
 		<url-pattern>/Index</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<servlet-name>User</servlet-name>
-		<jsp-file>/WEB-INF/User.jsp</jsp-file>
+		<servlet-name>Admin</servlet-name>
+		<jsp-file>/Admin/DashBoard.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>User</servlet-name>
-		<url-pattern>/User</url-pattern>
+		<servlet-name>Admin</servlet-name>
+		<url-pattern>/Admin/DashBoard</url-pattern>
 	</servlet-mapping>
 </web-app>
