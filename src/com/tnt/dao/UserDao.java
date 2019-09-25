@@ -3,6 +3,7 @@ package com.tnt.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 import com.tnt.model.User;
 
@@ -19,50 +20,95 @@ public class UserDao {
 	public int create(User u) {
 		int i = 0;
 		try (Connection con = Dao.getcon();) {
-			if (!(U.check(u.getEmail()))) {
-				PreparedStatement ps = con
-						.prepareStatement("INSERT INTO User (fname, mobile, email, pass) VALUES (?, ?, ?, ?) ");
-				ps.setString(1, u.getFname());
-				ps.setString(2, u.getMobile());
-				ps.setString(3, u.getEmail());
-				ps.setString(4, u.getPass());
-				i = ps.executeUpdate();
+			String sql = "INSERT INTO `Users` (`FullName`, `MobileNumber`, `EmailId`, `Password`) VALUES(?, ?, ?, ?) ";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, u.getFullName());
+			ps.setString(2, u.getMobileNumber());
+			ps.setString(3, u.getEmailId());
+			ps.setString(4, u.getPassword());
+			i = ps.executeUpdate();
+			if (i > 0) {
+				System.out.println("A new user was inserted successfully!");
 			}
-
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return i;
 	}
 
-	public String log(String email, String pass) {
+	public String retrive(String email, String pass) {
 		try (Connection con = Dao.getcon();) {
-			PreparedStatement ps = con.prepareStatement("select * from User where email= BINARY ? and pass= BINARY ?");
+			PreparedStatement ps = con
+					.prepareStatement("SELECT * FROM `Users` WHERE `EmailId` = BINARY ? AND `Password` = BINARY ?");
 			ps.setString(1, email);
 			ps.setString(2, pass);
-			ResultSet rs = ps.executeQuery(); // Fetch from database using executeQuery
+			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				return rs.getString("email");
+				return rs.getString("EmailId");
 			}
-			return null;
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return null;
 	}
 
-	public boolean check(String email) {
+	public void Update(User u) {
 		try (Connection con = Dao.getcon();) {
-			PreparedStatement st = con.prepareStatement("select * from User where email = BINARY ?");
-			st.setString(1, email);
-			ResultSet rs = st.executeQuery();
-			if (rs.next()) {
-				return true;
+			String sql = "UPDATE `Users` SET `Password` = ?, `FullName` = ?, `MobileNumber` = ? WHERE `EmailId` = BINARY ?;";
+			PreparedStatement statement = con.prepareStatement(sql);
+			statement.setString(1, u.getPassword());
+			statement.setString(2, u.getFullName());
+			statement.setString(3, u.getMobileNumber());
+			statement.setString(4, u.getEmailId());
+			int rowsUpdated = statement.executeUpdate();
+			if (rowsUpdated > 0) {
+				System.out.println("An existing user was updated successfully!");
 			}
-			return false;
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return false;
+	}
+
+	public String[][] getAllUser() {
+		String[][] arr = null;
+		String sql = "SELECT * FROM `Users`;";
+		try (Connection con = Dao.getcon();) {
+			Statement statement = con.createStatement();
+			ResultSet result = statement.executeQuery(sql);
+			result.last();
+			int totalRows = result.getRow();
+			result.beforeFirst();
+			arr = new String[totalRows][6];
+			if (totalRows != 0) {
+				int i = 0;
+				while (result.next()) {
+					arr[i][0] = result.getString("id");
+					arr[i][1] = result.getString("FullName");
+					arr[i][2] = result.getString("MobileNumber");
+					arr[i][3] = result.getString("EmailId");
+					arr[i][3] = result.getString("RegDate");
+					arr[i][3] = result.getString("UpdationDate");
+					i++;
+				}
+			} else {
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return arr;
+	}
+
+	public void delete(String email) {
+		try (Connection con = Dao.getcon();) {
+			String sql = "DELETE FROM 'Users' WHERE 'EmailId' = BINARY ?";
+			PreparedStatement statement = con.prepareStatement(sql);
+			statement.setString(1, email);
+			int rowsDeleted = statement.executeUpdate();
+			if (rowsDeleted > 0) {
+				System.out.println("A user was deleted successfully!");
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 }

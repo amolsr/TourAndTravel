@@ -6,8 +6,9 @@
 		<c:choose>
 			<c:when test="${Email eq null}">
 				<ul class="tp-hd-lft wow fadeInLeft animated" data-wow-delay=".5s">
-					<li class="hm"><a href="index.php"><i class="fa fa-home"></i></a></li>
-					<li class="hm"><a href="admin/index.php">Admin Login</a></li>
+					<li class="hm"><a href="Index?content=home"><i
+							class="fa fa-home"></i></a></li>
+					<li class="hm"><a href="Admin/Login">Admin Login</a></li>
 				</ul>
 				<ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s">
 					<li class="tol">Toll Number : 123-4568790</li>
@@ -20,7 +21,7 @@
 			</c:when>
 			<c:otherwise>
 				<ul class="tp-hd-lft wow fadeInLeft animated" data-wow-delay=".5s">
-					<li class="hm"><a href="index.html"><i class="fa fa-home"></i></a></li>
+					<li class="hm"><a href=""><i class="fa fa-home"></i></a></li>
 					<li class="prnt"><a href="profile.php">My Profile</a></li>
 					<li class="prnt"><a href="change-password.php">Change
 							Password</a></li>
@@ -161,7 +162,7 @@
 											<ul>
 
 												<li class="na-me"><select id="country" name="issue"
-													class="frm-field required sect" required="">
+													class="frm-field required sect" required>
 														<option value="">Select Issue</option>
 														<option value="Booking Issues">Booking Issues</option>
 														<option value="Cancellation">Cancellation</option>
@@ -170,7 +171,7 @@
 												</select></li>
 
 												<li class="descrip"><input class="special" type="text"
-													placeholder="description" name="description" required="">
+													placeholder="description" name="description" required>
 												</li>
 
 											</ul>

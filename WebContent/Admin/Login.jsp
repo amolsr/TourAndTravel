@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>TMS | Admin Sign in</title>
+<title>Admin Sign in</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/Login-Form-Dark.css">
@@ -34,6 +34,7 @@
 				<button class="btn btn-primary btn-block" type="submit">Log
 					In</button>
 			</div>
+			<a href="../Index?content=home" class="forgot">Back To Home Page.</a>
 		</form>
 	</div>
 </body>

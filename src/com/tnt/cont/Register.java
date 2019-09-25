@@ -26,9 +26,9 @@ public class Register extends HttpServlet {
 			throws ServletException, IOException {
 		UserDao U = UserDao.getU();
 		User u = new User();
-		u.setFname(request.getParameter("name"));
-		u.setMobile(request.getParameter("mobile"));
-		u.setEmail(request.getParameter("email"));
+		u.setFullName(request.getParameter("name"));
+		u.setMobileNumber(request.getParameter("mobile"));
+		u.setEmailId(request.getParameter("email"));
 		MessageDigest md;
 		try {
 			md = MessageDigest.getInstance("SHA-256");
@@ -38,12 +38,12 @@ public class Register extends HttpServlet {
 			while (HashWord.length() < 32) {
 				HashWord = "0" + HashWord;
 			}
-			u.setPass(HashWord);
+			u.setPassword(HashWord);
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-		if (!((u.getFname().equals("")) || (u.getMobile().equals("")) || (u.getEmail().equals(""))
-				|| (u.getPass().equals("")))) {
+		if (!((u.getFullName().equals("")) || (u.getMobileNumber().equals("")) || (u.getEmailId().equals(""))
+				|| (u.getPassword().equals("")))) {
 			int i = U.create(u);
 			if (i > 0) {
 				response.getWriter().print("Success");

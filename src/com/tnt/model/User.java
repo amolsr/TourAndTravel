@@ -1,48 +1,59 @@
 package com.tnt.model;
 
 public class User {
-	private String fname;
-	private String mobile;
-	private String email;
-	private String pass;
+	private String FullName;
+	private String MobileNumber;
+	private String EmailId;
+	private String password;
+	private String RegDate;
+	private String UpdationDate;
 
-	public User() {
-		this.fname = "";
-		this.mobile = "";
-		this.email = "";
-		this.pass = "";
+	public String getFullName() {
+		return FullName;
 	}
 
-	public String getFname() {
-		return fname;
+	public void setFullName(String fullName) {
+		FullName = fullName;
 	}
 
-	public void setFname(String fname) {
-		this.fname = fname;
+	public String getMobileNumber() {
+		return MobileNumber;
 	}
 
-	public String getMobile() {
-		return mobile;
+	public void setMobileNumber(String mobileNumber) {
+		MobileNumber = mobileNumber;
 	}
 
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
+	public String getPassword() {
+		return password;
 	}
 
-	public String getEmail() {
-		return email;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public String getEmailId() {
+		return EmailId;
 	}
 
-	public String getPass() {
-		return pass;
+	public void setEmailId(String emailId) {
+		EmailId = emailId;
 	}
 
-	public void setPass(String pass) {
-		this.pass = pass;
+	public String getRegDate() {
+		return RegDate;
+	}
+
+	public void setRegDate(String regDate) {
+		RegDate = regDate;
+	}
+
+	public String getUpdationDate() {
+		return UpdationDate;
+	}
+
+	public void setUpdationDate(String updationDate) {
+		UpdationDate = updationDate;
 	}
 
 }

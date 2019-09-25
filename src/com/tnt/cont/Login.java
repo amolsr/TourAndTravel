@@ -23,7 +23,7 @@ public class Login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		User u = new User();
-		u.setEmail(request.getParameter("email"));
+		u.setEmailId(request.getParameter("email"));
 		MessageDigest md;
 		try {
 			md = MessageDigest.getInstance("SHA-256");
@@ -33,14 +33,14 @@ public class Login extends HttpServlet {
 			while (HashWord.length() < 32) {
 				HashWord = "0" + HashWord;
 			}
-			u.setPass(HashWord);
+			u.setPassword(HashWord);
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
 
 		UserDao dao = UserDao.getU();
 		try {
-			String email = dao.log(u.getEmail(), u.getPass());
+			String email = dao.retrive(u.getEmailId(), u.getPassword());
 			if (email != null) {
 				HttpSession session = request.getSession();
 				session.setAttribute("Email", email);

@@ -21,5 +21,4 @@ public class Menu {
 		pages.put("enquiry", "Enquiry.jsp");
 		return pages.get(content);
 	}
-
 }
