@@ -19,7 +19,7 @@ public class UserDao {
 
 	public int create(User u) {
 		int i = 0;
-		try (Connection con = Dao.getcon();) {
+		try (Connection con = DBManager.getcon();) {
 			String sql = "INSERT INTO `Users` (`FullName`, `MobileNumber`, `EmailId`, `Password`) VALUES(?, ?, ?, ?) ";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, u.getFullName());
@@ -37,7 +37,7 @@ public class UserDao {
 	}
 
 	public String retrive(String email, String pass) {
-		try (Connection con = Dao.getcon();) {
+		try (Connection con = DBManager.getcon();) {
 			PreparedStatement ps = con
 					.prepareStatement("SELECT * FROM `Users` WHERE `EmailId` = BINARY ? AND `Password` = BINARY ?");
 			ps.setString(1, email);
@@ -53,7 +53,7 @@ public class UserDao {
 	}
 
 	public void Update(User u) {
-		try (Connection con = Dao.getcon();) {
+		try (Connection con = DBManager.getcon();) {
 			String sql = "UPDATE `Users` SET `Password` = ?, `FullName` = ?, `MobileNumber` = ? WHERE `EmailId` = BINARY ?;";
 			PreparedStatement statement = con.prepareStatement(sql);
 			statement.setString(1, u.getPassword());
@@ -72,7 +72,7 @@ public class UserDao {
 	public String[][] getAllUser() {
 		String[][] arr = null;
 		String sql = "SELECT * FROM `Users`;";
-		try (Connection con = Dao.getcon();) {
+		try (Connection con = DBManager.getcon();) {
 			Statement statement = con.createStatement();
 			ResultSet result = statement.executeQuery(sql);
 			result.last();
@@ -99,7 +99,7 @@ public class UserDao {
 	}
 
 	public void delete(String email) {
-		try (Connection con = Dao.getcon();) {
+		try (Connection con = DBManager.getcon();) {
 			String sql = "DELETE FROM 'Users' WHERE 'EmailId' = BINARY ?";
 			PreparedStatement statement = con.prepareStatement(sql);
 			statement.setString(1, email);

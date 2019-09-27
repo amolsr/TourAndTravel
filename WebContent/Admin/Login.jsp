@@ -11,13 +11,14 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/SignIn.js"></script>
 </head>
 </head>
 <body class="login d-flex justify-content-center align-items-center"
 	background="img/Back.jpg"
 	style="background-position: center; background-size: cover; background-repeat: no-repeat;">
 	<div class="login-dark">
-		<form action="Login" method="post">
+		<form action="LogIn" autocomplete="off">
 			<h2 class="sr-only">Login Form</h2>
 			<div class="illustration">
 				<i class="icon ion-ios-locked-outline"></i>

@@ -1,8 +1,11 @@
 package com.tnt.dao;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
-public class Dao {
+public class DBManager {
+
 	private static Connection con;
 
 	public static Connection getcon() throws SQLException {
@@ -15,4 +18,7 @@ public class Dao {
 		return con;
 	}
 
+	public void closeConnection() throws SQLException {
+		con.close();
+	}
 }
