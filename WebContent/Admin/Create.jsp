@@ -1,22 +1,3 @@
-<style>
-.errorWrap {
-	padding: 10px;
-	margin: 0 0 20px 0;
-	background: #fff;
-	border-left: 4px solid #dd3d36;
-	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
-}
-
-.succWrap {
-	padding: 10px;
-	margin: 0 0 20px 0;
-	background: #fff;
-	border-left: 4px solid #5cb85c;
-	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
-}
-</style>
 <!--/content-inner-->
 <ol class="breadcrumb">
 	<li class="breadcrumb-item"><a href="index.html">Home</a><i
@@ -24,8 +5,8 @@
 </ol>
 <!--grid-->
 <div class="grid-form">
-
 	<!---->
+	<script type="text/javascript" src="./js/Create.js"></script>
 	<div class="grid-form1">
 		<h3>Create Package</h3>
 		<div class="tab-content">
@@ -44,13 +25,29 @@
 						<label for="focusedinput" class="col-sm-2 control-label">Package
 							Type</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control1" name="packagetype"
-								id="packagetype"
-								placeholder=" Package Type eg- Family Package / Couple Package"
+							<select class="form-control1" name="packagetype" id="packagetype"
 								required>
+								<option value="" disabled selected>Select your option</option>
+								<option value="Family">Family Package</option>
+								<option value="Couple">Couple Package</option>
+								<option value="Biker">Biker Package</option>
+								<option value="Adventure">Adventure Package</option>
+							</select>
 						</div>
 					</div>
-
+					<div class="form-group">
+						<label for="focusedinput" class="col-sm-2 control-label">Package
+							Date</label>
+						<div class="col-sm-8">
+							<div class="input-datepicker input-group"
+								style="padding-bottom: 0px;">
+								<input type="text" class="input-sm form-control1" name="start"
+									id="datepicker1" /> <span class="input-group-addon">to</span>
+								<input type="text" class="input-sm form-control1" name="end"
+									id="datepicker2" /><small class="form-text text-danger error"></small>
+							</div>
+						</div>
+					</div>
 					<div class="form-group">
 						<label for="focusedinput" class="col-sm-2 control-label">Package
 							Location</label>
@@ -59,16 +56,15 @@
 								id="packagelocation" placeholder=" Package Location" required>
 						</div>
 					</div>
-
 					<div class="form-group">
 						<label for="focusedinput" class="col-sm-2 control-label">Package
-							Price in USD</label>
+							Price in &#8377</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control1" name="packageprice"
-								id="packageprice" placeholder=" Package Price is USD" required>
+								id="packageprice" placeholder=" Package Price is &#8377"
+								required>
 						</div>
 					</div>
-
 					<div class="form-group">
 						<label for="focusedinput" class="col-sm-2 control-label">Package
 							Features</label>
@@ -79,8 +75,6 @@
 								required>
 						</div>
 					</div>
-
-
 					<div class="form-group">
 						<label for="focusedinput" class="col-sm-2 control-label">Package
 							Details</label>
@@ -97,11 +91,9 @@
 							<input type="file" name="packageimage" id="packageimage" required>
 						</div>
 					</div>
-
 					<div class="row">
 						<div class="col-sm-8 col-sm-offset-2">
 							<button type="submit" name="submit" class="btn-primary btn">Create</button>
-
 							<button type="reset" class="btn-inverse btn">Reset</button>
 						</div>
 					</div>

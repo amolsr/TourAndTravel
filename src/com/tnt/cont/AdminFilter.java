@@ -42,15 +42,15 @@ public class AdminFilter implements Filter {
 		HttpSession session = ((HttpServletRequest) request).getSession(false);
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		// pass the request along the filter chain
-		if (session.getAttribute("User") == null) {
-			httpResponse.sendRedirect("Index");
-		} else {
+		try {
+			session.getAttribute("User");
 			httpResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1
 			httpResponse.setHeader("Progma", "no-cache"); // HTTP 1.0
 			httpResponse.setHeader("Expires", "0"); // Proxies
 			chain.doFilter(request, httpResponse);
+		} catch (NullPointerException e) {
+			httpResponse.sendRedirect("Login");
 		}
-
 	}
 
 	/**
