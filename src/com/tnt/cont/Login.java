@@ -38,7 +38,7 @@ public class Login extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		UserDao dao = UserDao.getU();
+		UserDao dao = UserDao.getUserDao();
 		try {
 			String email = dao.retrive(u.getEmailId(), u.getPassword());
 			if (email != null) {

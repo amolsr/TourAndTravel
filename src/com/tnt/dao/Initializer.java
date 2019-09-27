@@ -40,9 +40,11 @@ public class Initializer implements ServletContextListener {
 			Statement stmt = con.createStatement();
 			String User = "CREATE TABLE `Users` (`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,`FullName` varchar(100) DEFAULT NULL,`MobileNumber` char(10) DEFAULT NULL,`EmailId` varchar(70) DEFAULT NULL,`Password` varchar(100) DEFAULT NULL,`RegDate` timestamp NULL DEFAULT current_timestamp(),`UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 			String Admin = "CREATE TABLE `Admin` (`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,`User` varchar(70) DEFAULT NULL,`Password` varchar(100) DEFAULT NULL,`RegDate` timestamp NULL DEFAULT current_timestamp(),`UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+			String tour = "CREATE TABLE `Tour` (`PackageId` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,`PackageName` varchar(200) DEFAULT NULL,`PackageType` varchar(150) DEFAULT NULL,`PackageLocation` varchar(100) DEFAULT NULL,`From` DATE DEFAULT NULL,`TO` DATE DEFAULT NULL, `PackagePrice` int(11) DEFAULT NULL,`PackageFeatures` varchar(255) DEFAULT NULL,`PackageDetails` mediumtext DEFAULT NULL,`PackageImage` varchar(255) DEFAULT NULL,`Creationdate` timestamp NULL DEFAULT current_timestamp(),`UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+			stmt.executeUpdate(tour);
 			stmt.executeUpdate(User);
 			stmt.executeUpdate(Admin);
-			System.out.println(User + Admin);
+			System.out.println(User + "\n" + Admin + "\n" + tour);
 		} catch (Exception e) {
 			System.out.println(e);
 		}

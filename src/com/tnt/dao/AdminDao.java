@@ -9,7 +9,7 @@ import com.tnt.model.Admin;
 public class AdminDao {
 	private static AdminDao A = new AdminDao();
 
-	public static AdminDao getA() {
+	public static AdminDao getAdminDao() {
 		return A;
 	}
 

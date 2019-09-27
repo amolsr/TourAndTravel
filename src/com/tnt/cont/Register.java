@@ -24,7 +24,7 @@ public class Register extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		UserDao U = UserDao.getU();
+		UserDao U = UserDao.getUserDao();
 		User u = new User();
 		u.setFullName(request.getParameter("name"));
 		u.setMobileNumber(request.getParameter("mobile"));

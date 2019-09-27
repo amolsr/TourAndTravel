@@ -10,7 +10,7 @@ import com.tnt.model.User;
 public class UserDao {
 	private static UserDao U = new UserDao();
 
-	public static UserDao getU() {
+	public static UserDao getUserDao() {
 		return U;
 	}
 
@@ -86,8 +86,8 @@ public class UserDao {
 					arr[i][1] = result.getString("FullName");
 					arr[i][2] = result.getString("MobileNumber");
 					arr[i][3] = result.getString("EmailId");
-					arr[i][3] = result.getString("RegDate");
-					arr[i][3] = result.getString("UpdationDate");
+					arr[i][4] = result.getString("RegDate");
+					arr[i][5] = result.getString("UpdationDate");
 					i++;
 				}
 			} else {

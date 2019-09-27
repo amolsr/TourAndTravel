@@ -40,7 +40,7 @@ public class AdminLogin extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		AdminDao dao = AdminDao.getA();
+		AdminDao dao = AdminDao.getAdminDao();
 		try {
 			String user = dao.retrive(a.getUser(), a.getPass());
 			if (user != null) {
@@ -57,7 +57,7 @@ public class AdminLogin extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		AdminDao A = AdminDao.getA();
+		AdminDao A = AdminDao.getAdminDao();
 		Admin a = new Admin();
 		a.setUser(req.getParameter("uname"));
 		MessageDigest md;
