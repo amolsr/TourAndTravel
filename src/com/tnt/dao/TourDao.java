@@ -5,7 +5,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 
 import com.tnt.model.Tour;
 
@@ -43,34 +42,38 @@ public class TourDao {
 		return i;
 	}
 
-	public String[][] retriveFour() {
-		String[][] arr = null;
+	public Tour[] retriveFour() {
+		Tour[] arr = null;
+		String sql = "SELECT * from `Tour` order by rand() limit 4";
 		try (Connection con = DBManager.getcon();) {
-			PreparedStatement ps = con.prepareStatement("SELECT * from `Tour` order by rand() limit 4");
-			ResultSet rs = ps.executeQuery();
+			Statement statement = con.createStatement();
+			ResultSet rs = statement.executeQuery(sql);
 			rs.last();
 			int totalRows = rs.getRow();
 			rs.beforeFirst();
-			arr = new String[totalRows][10];
+			arr = new Tour[totalRows];
 			if (totalRows != 0) {
 				int i = 0;
 				while (rs.next()) {
-					arr[i][0] = rs.getString("PackageId");
-					arr[i][1] = rs.getString("PackageName");
-					arr[i][2] = rs.getString("PackageType");
-					arr[i][3] = rs.getString("PackageLocation");
-					arr[i][4] = rs.getString("PackagePrice");
-					arr[i][5] = rs.getString("PackageFeatures");
-					arr[i][6] = rs.getString("PackageDetails");
-					arr[i][7] = rs.getString("PackageImage");
-					arr[i][8] = rs.getString("Creationdate");
-					arr[i][9] = rs.getString("UpdationDate");
+					arr[i] = new Tour();
+					arr[i].setId(rs.getInt("PackageId"));
+					arr[i].setPackageName(rs.getString("PackageName"));
+					arr[i].setPackageType(rs.getString("PackageType"));
+					arr[i].setPackageLocation(rs.getString("PackageLocation"));
+					arr[i].setFrom(rs.getDate("From"));
+					arr[i].setTo(rs.getDate("to"));
+					arr[i].setPackagePrice(rs.getInt("PackagePrice"));
+					arr[i].setPackageFeatures(rs.getString("PackageFeatures"));
+					arr[i].setPackageDetails(rs.getString("PackageDetails"));
+					arr[i].setPackageImage(rs.getString("PackageImage"));
+					arr[i].setCreationDate(rs.getString("Creationdate"));
 					i++;
 				}
 			} else {
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("Dao " + e);
+			e.printStackTrace();
 		}
 		return arr;
 	}
@@ -97,8 +100,8 @@ public class TourDao {
 		}
 	}
 
-	public String[][] getAllTour() {
-		String[][] arr = null;
+	public Tour[] getAllTour() {
+		Tour[] arr = null;
 		String sql = "SELECT * FROM `Tour`;";
 		try (Connection con = DBManager.getcon();) {
 			Statement statement = con.createStatement();
@@ -106,26 +109,29 @@ public class TourDao {
 			rs.last();
 			int totalRows = rs.getRow();
 			rs.beforeFirst();
-			arr = new String[totalRows][10];
+			arr = new Tour[totalRows];
 			if (totalRows != 0) {
 				int i = 0;
 				while (rs.next()) {
-					arr[i][0] = rs.getString("PackageId");
-					arr[i][1] = rs.getString("PackageName");
-					arr[i][2] = rs.getString("PackageType");
-					arr[i][3] = rs.getString("PackageLocation");
-					arr[i][4] = rs.getString("PackagePrice");
-					arr[i][5] = rs.getString("PackageFeatures");
-					arr[i][6] = rs.getString("PackageDetails");
-					arr[i][7] = rs.getString("PackageImage");
-					arr[i][8] = rs.getString("Creationdate");
-					arr[i][9] = rs.getString("UpdationDate");
+					arr[i] = new Tour();
+					arr[i].setId(rs.getInt("PackageId"));
+					arr[i].setPackageName(rs.getString("PackageName"));
+					arr[i].setPackageType(rs.getString("PackageType"));
+					arr[i].setPackageLocation(rs.getString("PackageLocation"));
+					arr[i].setFrom(rs.getDate("From"));
+					arr[i].setTo(rs.getDate("to"));
+					arr[i].setPackagePrice(rs.getInt("PackagePrice"));
+					arr[i].setPackageFeatures(rs.getString("PackageFeatures"));
+					arr[i].setPackageDetails(rs.getString("PackageDetails"));
+					arr[i].setPackageImage(rs.getString("PackageImage"));
+					arr[i].setCreationDate(rs.getString("Creationdate"));
 					i++;
 				}
 			} else {
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("Dao " + e);
+			e.printStackTrace();
 		}
 		return arr;
 	}

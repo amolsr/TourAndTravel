@@ -1,29 +1,3 @@
-
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>TMS | Admin Package Creation</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords"
-	content="Pooled Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript">
-	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-</script>
-<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<link href="css/style.css" rel='stylesheet' type='text/css' />
-<link rel="stylesheet" href="css/morris.css" type="text/css" />
-<link href="css/font-awesome.css" rel="stylesheet">
-<script src="js/jquery-2.1.4.min.js"></script>
-<link
-	href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400'
-	rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700'
-	rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
-
-</head>
 <body>
 	<div class="page-container">
 		<!--/content-inner-->
@@ -223,12 +197,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<ul id="menu">
 					<li><a href="dashboard.php"><i class="fa fa-tachometer"></i>
 							<span>Dashboard</span>
-						<div class="clearfix"></div></a></li>
+							<div class="clearfix"></div></a></li>
 
 					<li id="menu-academico"><a href="#"><i
 							class="fa fa-list-ul" aria-hidden="true"></i><span> Tour
 								Packages</span> <span class="fa fa-angle-right" style="float: right"></span>
-						<div class="clearfix"></div></a>
+							<div class="clearfix"></div></a>
 						<ul id="menu-academico-sub">
 							<li id="menu-academico-avaliacoes"><a
 								href="create-package.php">Create</a></li>
@@ -238,22 +212,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li id="menu-academico"><a href="manage-users.php"><i
 							class="fa fa-users" aria-hidden="true"></i><span>Manage
 								Users</span>
-						<div class="clearfix"></div></a></li>
+							<div class="clearfix"></div></a></li>
 
 					<li><a href="manage-bookings.php"><i class="fa fa-list"
 							aria-hidden="true"></i> <span>Manage Booking</span>
-						<div class="clearfix"></div></a></li>
+							<div class="clearfix"></div></a></li>
 					<li><a href="manageissues.php"><i class="fa fa-table"></i>
 							<span>Manage Issues</span>
-						<div class="clearfix"></div></a></li>
+							<div class="clearfix"></div></a></li>
 					<li><a href="manage-enquires.php"><i
 							class="fa fa-file-text-o" aria-hidden="true"></i> <span>Manage
 								Enquiries</span>
-						<div class="clearfix"></div></a></li>
+							<div class="clearfix"></div></a></li>
 					<li><a href="manage-pages.php"><i
 							class="fa fa-file-text-o" aria-hidden="true"></i> <span>Manage
 								Pages</span>
-						<div class="clearfix"></div></a></li>
+							<div class="clearfix"></div></a></li>
 
 
 				</ul>
@@ -285,12 +259,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					toggle = !toggle;
 				});
 	</script>
-	<!--js -->
-	<script src="js/jquery.nicescroll.js"></script>
-	<script src="js/scripts.js"></script>
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- /Bootstrap Core JavaScript -->
-
-</body>
-</html>

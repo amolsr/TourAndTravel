@@ -1,6 +1,7 @@
 <!--- Offers ---->
 <div class="container ">
 	<div class="rupes d-flex">
+
 		<div class="col-md-4 rupes-left wow fadeInDown animated animated"
 			data-wow-delay=".5s"
 			style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
@@ -15,6 +16,7 @@
 			</div>
 			<div class="clearfix"></div>
 		</div>
+
 		<div class="col-md-4 rupes-left wow fadeInDown animated animated"
 			data-wow-delay=".5s"
 			style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
@@ -29,6 +31,7 @@
 			</div>
 			<div class="clearfix"></div>
 		</div>
+
 		<div class="col-md-4 rupes-left wow fadeInDown animated animated"
 			data-wow-delay=".5s"
 			style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
@@ -82,6 +85,7 @@
 			</div>
 			<div class="clearfix"></div>
 		</div>
+
 
 		<div class="rom-btm">
 			<div class="col-md-3 room-left wow fadeInLeft animated"

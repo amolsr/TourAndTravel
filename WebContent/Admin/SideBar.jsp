@@ -15,8 +15,7 @@
 				<ul id="menu-academico-sub">
 					<li id="menu-academico-avaliacoes"><a
 						href="DashBoard?content=create">Create</a></li>
-					<li id="menu-academico-avaliacoes"><a
-						href="DashBoard?content=tour">Manage</a></li>
+					<li id="menu-academico-avaliacoes"><a href="ManageTour">Manage</a></li>
 				</ul></li>
 			<li id="menu-academico"><a href="DashBoard?content=user"><i
 					class="fa fa-users" aria-hidden="true"></i><span>Manage
@@ -38,8 +37,8 @@
 </div>
 <div class="clearfix"></div>
 <script>
-		var toggle = true;
-		jQuery(function($) {
+	var toggle = true;
+	jQuery(function($) {
 		$(".sidebar-icon").click(
 				function() {
 					if (toggle) {
@@ -60,4 +59,5 @@
 
 					toggle = !toggle;
 				});
-	</script>
+	});
+</script>

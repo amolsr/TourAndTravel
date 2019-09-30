@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class UserFilter
  */
-@WebFilter("/Admin/DashBoard")
+//@WebFilter("/Admin/DashBoard")
 public class AdminFilter implements Filter {
 
 	/**

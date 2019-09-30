@@ -3,6 +3,7 @@ package com.tnt.model;
 import java.util.Date;
 
 public class Tour {
+	private Integer id;
 	private String packageName;
 	private String packageType;
 	private String packageLocation;
@@ -14,6 +15,14 @@ public class Tour {
 	private String packageImage;
 	private String creationDate;
 	private String updationDate;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getPackageName() {
 		return packageName;

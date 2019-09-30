@@ -90,26 +90,19 @@
 			</div>
 		</div>
 		<jsp:include page="./SideBar.jsp"></jsp:include>
-	</div>
-	<!--js -->
-	<script src="js/jquery.nicescroll.js"></script>
-	<script src="js/scripts.js"></script>
-	<!-- morris JavaScript -->
-	<script src="js/raphael-min.js"></script>
-	<script src="js/morris.js"></script>
-	<script>
-		jQuery(function($) {
-			//BOX BUTTON SHOW AND CLOSE
-			$('.small-graph-box').hover(function() {
-				$(this).find('.box-button').fadeIn('fast');
-			}, function() {
-				$(this).find('.box-button').fadeOut('fast');
+		<script>
+			jQuery(function($) {
+				//BOX BUTTON SHOW AND CLOSE
+				$('.small-graph-box').hover(function() {
+					$(this).find('.box-button').fadeIn('fast');
+				}, function() {
+					$(this).find('.box-button').fadeOut('fast');
+				});
+				$('.small-graph-box .box-close').click(function() {
+					$(this).closest('.small-graph-box').fadeOut(200);
+					return false;
+				});
 			});
-			$('.small-graph-box .box-close').click(function() {
-				$(this).closest('.small-graph-box').fadeOut(200);
-				return false;
-			});
-		});
-	</script>
+		</script>
 </body>
 </html>
