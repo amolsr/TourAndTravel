@@ -234,9 +234,9 @@
 						<c:choose>
 							<c:when test="${Email eq null}">
 								<ul class="nav navbar-nav">
-									<li><a href="Index?content=home">Home</a></li>
+									<li><a href="Home">Home</a></li>
 									<li><a href="Index?content=about">About</a></li>
-									<li><a href="Index?content=package">Tour Packages</a></li>
+									<li><a href="ViewPackage">Tour Packages</a></li>
 									<li><a href="Index?content=privacy">Privacy Policy</a></li>
 									<li><a href="Index?content=terms">Terms of Use</a></li>
 									<li><a href="Index?content=contact">Contact Us</a></li>
@@ -262,12 +262,5 @@
 		</div>
 
 		<div class="clearfix"></div>
-	</div>
-</div>
-<div class="banner">
-	<div class="container">
-		<h1 class="wow zoomIn animated animated" data-wow-delay=".5s"
-			style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">
-			TMS - Tourism Management System</h1>
 	</div>
 </div>

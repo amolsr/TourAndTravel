@@ -1,3 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<div class="banner">
+	<div class="container">
+		<h1 class="wow zoomIn animated animated" data-wow-delay=".5s"
+			style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">
+			TMS - Tourism Management System</h1>
+	</div>
+</div>
 <!--- Offers ---->
 <div class="container ">
 	<div class="rupes d-flex">
@@ -58,120 +66,44 @@
 
 		<h3>Package List</h3>
 
-
-		<div class="rom-btm">
-			<div class="col-md-3 room-left wow fadeInLeft animated"
-				data-wow-delay=".5s">
-				<img
-					src="admin/pacakgeimages/14287acc-b5cb-46db-b8b4-e3ffe652fc0d.png"
-					class="img-responsive" alt="">
+		<c:forEach var="temp" items="${Sample}">
+			<div class="rom-btm">
+				<div class="col-md-3 room-left wow fadeInLeft animated"
+					data-wow-delay=".5s">
+					<img src="${temp.packageImage}" class="img-responsive" alt="">
+				</div>
+				<div class="col-md-6 room-midle wow fadeInUp animated"
+					data-wow-delay=".5s">
+					<h4>
+						Package Name:
+						<c:out value="${temp.packageName}"></c:out>
+					</h4>
+					<h6>
+						Package Type :
+						<c:out value="${temp.packageType}"></c:out>
+					</h6>
+					<p>
+						<b>Package Location :</b>
+						<c:out value="${temp.packageLocation}"></c:out>
+					</p>
+					<p>
+						<b>Features</b>
+						<c:out value="${temp.packageFeatures}"></c:out>
+					</p>
+				</div>
+				<div class="col-md-3 room-right wow fadeInRight animated"
+					data-wow-delay=".5s">
+					<h5>
+						<c:out value="${temp.packagePrice}"></c:out>
+					</h5>
+					<a href="PackageDetails?pkgid=${temp.id}" class="view">Details</a>
+				</div>
+				<div class="clearfix"></div>
 			</div>
-			<div class="col-md-6 room-midle wow fadeInUp animated"
-				data-wow-delay=".5s">
-				<h4>Package Name: Manali Trip</h4>
-				<h6>Package Type : General</h6>
-				<p>
-					<b>Package Location :</b> Kullu Manali India
-				</p>
-				<p>
-					<b>Features</b> Air Conditioning ,Balcony / Terrace,Cable /
-					Satellite / Pay TV available,Ceiling Fan,Hairdryer
-				</p>
-			</div>
-			<div class="col-md-3 room-right wow fadeInRight animated"
-				data-wow-delay=".5s">
-				<h5>USD 100</h5>
-				<a href="package-details.php?pkgid=1" class="view">Details</a>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-
-
-		<div class="rom-btm">
-			<div class="col-md-3 room-left wow fadeInLeft animated"
-				data-wow-delay=".5s">
-				<img src="admin/pacakgeimages/phpgurukul-1.png"
-					class="img-responsive" alt="">
-			</div>
-			<div class="col-md-6 room-midle wow fadeInUp animated"
-				data-wow-delay=".5s">
-				<h4>Package Name: Test</h4>
-				<h6>Package Type : Test</h6>
-				<p>
-					<b>Package Location :</b> Delhi India
-				</p>
-				<p>
-					<b>Features</b> &quot;Lorem ipsum dolor sit amet, consectetur
-					adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-					dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-					exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor
-				</p>
-			</div>
-			<div class="col-md-3 room-right wow fadeInRight animated"
-				data-wow-delay=".5s">
-				<h5>USD 5433</h5>
-				<a href="package-details.php?pkgid=2" class="view">Details</a>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-
-		<div class="rom-btm">
-			<div class="col-md-3 room-left wow fadeInLeft animated"
-				data-wow-delay=".5s">
-				<img src="admin/pacakgeimages/complaints.jpg" class="img-responsive"
-					alt="">
-			</div>
-			<div class="col-md-6 room-midle wow fadeInUp animated"
-				data-wow-delay=".5s">
-				<h4>Package Name: Demo Demo Demo Demo test</h4>
-				<h6>Package Type : Demo Demo Demo Demo Demo Demo test</h6>
-				<p>
-					<b>Package Location :</b> Demo Demo Demo Demo Demo Demo test
-				</p>
-				<p>
-					<b>Features</b> Demo Demo test
-				</p>
-			</div>
-			<div class="col-md-3 room-right wow fadeInRight animated"
-				data-wow-delay=".5s">
-				<h5>USD 1000</h5>
-				<a href="package-details.php?pkgid=3" class="view">Details</a>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-
-		<div class="rom-btm">
-			<div class="col-md-3 room-left wow fadeInLeft animated"
-				data-wow-delay=".5s">
-				<img src="admin/pacakgeimages/coorg-hill-station1.jpg"
-					class="img-responsive" alt="">
-			</div>
-			<div class="col-md-6 room-midle wow fadeInUp animated"
-				data-wow-delay=".5s">
-				<h4>Package Name: Coorg : Tour Packages</h4>
-				<h6>Package Type : General</h6>
-				<p>
-					<b>Package Location :</b> Coorg
-				</p>
-				<p>
-					<b>Features</b> velit esse cillum dolore eu fugiat nulla pariatur.
-					Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-					officia deserunt mollit anim id est laborum.&quot;
-				</p>
-			</div>
-			<div class="col-md-3 room-right wow fadeInRight animated"
-				data-wow-delay=".5s">
-				<h5>USD 3000</h5>
-				<a href="package-details.php?pkgid=5" class="view">Details</a>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-
-
+		</c:forEach>
 
 		<div>
-			<a href="Index?content=package" class="view">View More Packages</a>
+			<a href="ViewPackage" class="view">View More Packages</a>
 		</div>
 	</div>
 	<div class="clearfix"></div>

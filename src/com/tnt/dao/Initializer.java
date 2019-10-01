@@ -8,6 +8,8 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import com.tnt.model.Tour;
+
 /**
  * Application Lifecycle Listener implementation class Initializer
  *
@@ -19,7 +21,6 @@ public class Initializer implements ServletContextListener {
 	 * Default constructor.
 	 */
 	public Initializer() {
-
 	}
 
 	/**
