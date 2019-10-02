@@ -15,6 +15,7 @@ public class Menu {
 		pages.put("help", "Help.jsp");
 		pages.put("enquiry", "Enquiry.jsp");
 		pages.put("contact", "ContactUs.jsp");
+		pages.put("detail", "Details.jsp");
 
 		pages.put("create", "Create.jsp");
 		pages.put("about", "AboutUs.jsp");

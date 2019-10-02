@@ -20,8 +20,8 @@ public class TourDao {
 
 	public int create(Tour t) {
 		int i = 0;
+		String sql = "INSERT INTO `Tour` ( `PackageName`, `PackageType`, `PackageLocation`, `From`, `TO`, `PackagePrice`, `PackageFeatures`, `PackageDetails`, `PackageImage`) VALUES(? ,? ,? ,? ,? ,? ,? ,?, ? ) ";
 		try (Connection con = DBManager.getcon();) {
-			String sql = "INSERT INTO `Tour` ( `PackageName`, `PackageType`, `PackageLocation`, `From`, `TO`, `PackagePrice`, `PackageFeatures`, `PackageDetails`, `PackageImage`) VALUES(? ,? ,? ,? ,? ,? ,? ,?, ? ) ";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, t.getPackageName());
 			ps.setString(2, t.getPackageType());
@@ -78,28 +78,6 @@ public class TourDao {
 		return arr;
 	}
 
-	public void Update(Tour t) {
-		try (Connection con = DBManager.getcon();) {
-			String sql = "UPDATE `Tour` SET `Password` = ?, `FullName` = ?, `MobileNumber` = ? WHERE `EmailId` = BINARY ?;";
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, t.getPackageName());
-			ps.setString(2, t.getPackageType());
-			ps.setString(3, t.getPackageLocation());
-			ps.setDate(4, new Date((t.getFrom()).getTime()));
-			ps.setDate(5, new Date((t.getTo()).getTime()));
-			ps.setInt(6, t.getPackagePrice());
-			ps.setString(7, t.getPackageFeatures());
-			ps.setString(8, t.getPackageDetails());
-			ps.setString(9, t.getPackageImage());
-			int rowsUpdated = ps.executeUpdate();
-			if (rowsUpdated > 0) {
-				System.out.println("An existing user was updated successfully!");
-			}
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}
-
 	public Tour[] getAllTour() {
 		Tour[] arr = null;
 		String sql = "SELECT * FROM `Tour`;";
@@ -134,6 +112,56 @@ public class TourDao {
 			e.printStackTrace();
 		}
 		return arr;
+	}
+
+	public Tour getTourById(Integer i) {
+		Tour t = null;
+		String sql = "SELECT * FROM `Tour` WHERE `PackageId` = BINARY ? ;";
+		try (Connection con = DBManager.getcon();) {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, i);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				t = new Tour();
+				t.setId(rs.getInt("PackageId"));
+				t.setPackageName(rs.getString("PackageName"));
+				t.setPackageType(rs.getString("PackageType"));
+				t.setPackageLocation(rs.getString("PackageLocation"));
+				t.setFrom(rs.getDate("From"));
+				t.setTo(rs.getDate("to"));
+				t.setPackagePrice(rs.getInt("PackagePrice"));
+				t.setPackageFeatures(rs.getString("PackageFeatures"));
+				t.setPackageDetails(rs.getString("PackageDetails"));
+				t.setPackageImage(rs.getString("PackageImage"));
+				t.setCreationDate(rs.getString("Creationdate"));
+			}
+		} catch (Exception e) {
+			System.out.println("Dao " + e);
+			e.printStackTrace();
+		}
+		return t;
+	}
+
+	public void Update(Tour t) {
+		try (Connection con = DBManager.getcon();) {
+			String sql = "UPDATE `Tour` SET `Password` = ?, `FullName` = ?, `MobileNumber` = ? WHERE `EmailId` = BINARY ?;";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, t.getPackageName());
+			ps.setString(2, t.getPackageType());
+			ps.setString(3, t.getPackageLocation());
+			ps.setDate(4, new Date((t.getFrom()).getTime()));
+			ps.setDate(5, new Date((t.getTo()).getTime()));
+			ps.setInt(6, t.getPackagePrice());
+			ps.setString(7, t.getPackageFeatures());
+			ps.setString(8, t.getPackageDetails());
+			ps.setString(9, t.getPackageImage());
+			int rowsUpdated = ps.executeUpdate();
+			if (rowsUpdated > 0) {
+				System.out.println("An existing user was updated successfully!");
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	public void delete(Integer id) {

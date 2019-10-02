@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tnt.dao.TourDao;
+import com.tnt.model.Tour;
+
 /**
  * Servlet implementation class PackageDetails
  */
@@ -16,9 +19,15 @@ public class PackageDetails extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String n1 = request.getParameter("pkgid");
-		System.out.println(n1);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String id = request.getParameter("pkgid");
+		TourDao T = TourDao.getTourDao();
+		Tour t = T.getTourById(Integer.parseInt(id));
+		if (t != null) {
+			request.setAttribute("Package", t);
+			request.getRequestDispatcher("Index?content=detail").forward(request, response);
+		} else {
+			response.sendError(HttpServletResponse.SC_NOT_FOUND);
+		}
 	}
 
 }
