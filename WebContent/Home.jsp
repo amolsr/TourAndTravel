@@ -94,7 +94,7 @@
 				<div class="col-md-3 room-right wow fadeInRight animated"
 					data-wow-delay=".5s">
 					<h5>
-						<c:out value="${temp.packagePrice}"></c:out>
+						&#8377 <c:out value="${temp.packagePrice}"></c:out>
 					</h5>
 					<a href="PackageDetails?pkgid=${temp.id}" class="view">Details</a>
 				</div>

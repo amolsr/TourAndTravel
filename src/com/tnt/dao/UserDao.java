@@ -69,25 +69,26 @@ public class UserDao {
 		}
 	}
 
-	public String[][] getAllUser() {
-		String[][] arr = null;
-		String sql = "SELECT * FROM `Users`;";
+	public User[] getAllUser() {
+		User[] arr = null;
+		String sql = "SELECT * FROM `Tour`;";
 		try (Connection con = DBManager.getcon();) {
 			Statement statement = con.createStatement();
-			ResultSet result = statement.executeQuery(sql);
-			result.last();
-			int totalRows = result.getRow();
-			result.beforeFirst();
-			arr = new String[totalRows][6];
+			ResultSet rs = statement.executeQuery(sql);
+			rs.last();
+			int totalRows = rs.getRow();
+			rs.beforeFirst();
+			arr = new User[totalRows];
 			if (totalRows != 0) {
 				int i = 0;
-				while (result.next()) {
-					arr[i][0] = result.getString("id");
-					arr[i][1] = result.getString("FullName");
-					arr[i][2] = result.getString("MobileNumber");
-					arr[i][3] = result.getString("EmailId");
-					arr[i][4] = result.getString("RegDate");
-					arr[i][5] = result.getString("UpdationDate");
+				while (rs.next()) {
+					arr[i] = new User();
+					arr[i].setId(rs.getInt("id"));
+					arr[i].setFullName(rs.getString("FullName"));
+					arr[i].setMobileNumber(rs.getString("MobileNumber"));
+					arr[i].setEmailId(rs.getString("EmailId"));
+					arr[i].setRegDate(rs.getString("RegDate"));
+					arr[i].setUpdationDate(rs.getString("UpdationDate"));
 					i++;
 				}
 			} else {

@@ -21,11 +21,11 @@
 					class="fa fa-users" aria-hidden="true"></i><span>Manage
 						Users</span> </a></li>
 
-			<li><a href="manage-bookings.jsp"><i class="fa fa-list"
+			<li><a href="DashBoard?content=book"><i class="fa fa-list"
 					aria-hidden="true"></i> <span>Manage Booking</span> </a></li>
-			<li><a href="manageissues.jsp"><i class="fa fa-table"></i> <span>Manage
-						Issues</span> </a></li>
-			<li><a href="manage-enquires.jsp"><i
+			<li><a href="DashBoard?content=issue"><i class="fa fa-table"></i>
+					<span>Manage Issues</span> </a></li>
+			<li><a href="DashBoard?content=enquiry"><i
 					class="fa fa-file-text-o" aria-hidden="true"></i> <span>Manage
 						Enquiries</span> </a></li>
 			<li><a href="manage-pages.jsp"><i class="fa fa-file-text-o"

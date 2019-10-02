@@ -15,6 +15,14 @@
 		<url-pattern>/Index</url-pattern>
 	</servlet-mapping>
 	<servlet>
+		<servlet-name>User</servlet-name>
+		<jsp-file>/Index.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>User</servlet-name>
+		<url-pattern>/User</url-pattern>
+	</servlet-mapping>
+	<servlet>
 		<servlet-name>AdminLogin</servlet-name>
 		<jsp-file>/Admin/Login.jsp</jsp-file>
 	</servlet>
