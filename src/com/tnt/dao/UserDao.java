@@ -52,23 +52,6 @@ public class UserDao {
 		return null;
 	}
 
-	public void Update(User u) {
-		try (Connection con = DBManager.getcon();) {
-			String sql = "UPDATE `Users` SET `Password` = ?, `FullName` = ?, `MobileNumber` = ? WHERE `EmailId` = BINARY ?;";
-			PreparedStatement statement = con.prepareStatement(sql);
-			statement.setString(1, u.getPassword());
-			statement.setString(2, u.getFullName());
-			statement.setString(3, u.getMobileNumber());
-			statement.setString(4, u.getEmailId());
-			int rowsUpdated = statement.executeUpdate();
-			if (rowsUpdated > 0) {
-				System.out.println("An existing user was updated successfully!");
-			}
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}
-
 	public User[] getAllUser() {
 		User[] arr = null;
 		String sql = "SELECT * FROM `Tour`;";
@@ -99,17 +82,34 @@ public class UserDao {
 		return arr;
 	}
 
-	public void delete(String email) {
-		try (Connection con = DBManager.getcon();) {
-			String sql = "DELETE FROM 'Users' WHERE 'EmailId' = BINARY ?";
-			PreparedStatement statement = con.prepareStatement(sql);
-			statement.setString(1, email);
-			int rowsDeleted = statement.executeUpdate();
-			if (rowsDeleted > 0) {
-				System.out.println("A user was deleted successfully!");
-			}
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}
+//	public void Update(User u) {
+//		try (Connection con = DBManager.getcon();) {
+//			String sql = "UPDATE `Users` SET `Password` = ?, `FullName` = ?, `MobileNumber` = ? WHERE `EmailId` = BINARY ?;";
+//			PreparedStatement statement = con.prepareStatement(sql);
+//			statement.setString(1, u.getPassword());
+//			statement.setString(2, u.getFullName());
+//			statement.setString(3, u.getMobileNumber());
+//			statement.setString(4, u.getEmailId());
+//			int rowsUpdated = statement.executeUpdate();
+//			if (rowsUpdated > 0) {
+//				System.out.println("An existing user was updated successfully!");
+//			}
+//		} catch (Exception e) {
+//			System.out.println(e);
+//		}
+//	}
+
+//	public void delete(String email) {
+//		try (Connection con = DBManager.getcon();) {
+//			String sql = "DELETE FROM 'Users' WHERE 'EmailId' = BINARY ?";
+//			PreparedStatement statement = con.prepareStatement(sql);
+//			statement.setString(1, email);
+//			int rowsDeleted = statement.executeUpdate();
+//			if (rowsDeleted > 0) {
+//				System.out.println("A user was deleted successfully!");
+//			}
+//		} catch (Exception e) {
+//			System.out.println(e);
+//		}
+//	}
 }

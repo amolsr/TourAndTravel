@@ -7,14 +7,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.tnt.dao.UserDao;
-import com.tnt.model.User;
+import com.tnt.dao.BookDao;
+import com.tnt.model.Book;
 
 /**
- * Servlet implementation class ManageUser
+ * Servlet implementation class ManageBook
  */
-@WebServlet("/Admin/ManageUser")
-public class ManageUser extends HttpServlet {
+@WebServlet("/Admin/ManageBook")
+public class ManageBook extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -23,9 +23,9 @@ public class ManageUser extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		User[] arr = UserDao.getUserDao().getAllUser();
-		request.setAttribute("User", arr);
-		request.getRequestDispatcher("DashBoard?content=user").forward(request, response);
+		Book[] arr = BookDao.getBookDao().getAllBooking();
+		request.setAttribute("Book", arr);
+		request.getRequestDispatcher("DashBoard?content=book").forward(request, response);
 	}
 
 }

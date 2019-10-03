@@ -136,45 +136,44 @@ public class TourDao {
 				t.setCreationDate(rs.getString("Creationdate"));
 			}
 		} catch (Exception e) {
-			System.out.println("Dao " + e);
 			e.printStackTrace();
 		}
 		return t;
 	}
 
-	public void Update(Tour t) {
-		try (Connection con = DBManager.getcon();) {
-			String sql = "UPDATE `Tour` SET `Password` = ?, `FullName` = ?, `MobileNumber` = ? WHERE `EmailId` = BINARY ?;";
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, t.getPackageName());
-			ps.setString(2, t.getPackageType());
-			ps.setString(3, t.getPackageLocation());
-			ps.setDate(4, new Date((t.getFrom()).getTime()));
-			ps.setDate(5, new Date((t.getTo()).getTime()));
-			ps.setInt(6, t.getPackagePrice());
-			ps.setString(7, t.getPackageFeatures());
-			ps.setString(8, t.getPackageDetails());
-			ps.setString(9, t.getPackageImage());
-			int rowsUpdated = ps.executeUpdate();
-			if (rowsUpdated > 0) {
-				System.out.println("An existing user was updated successfully!");
-			}
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}
+//	public void Update(Tour t) {
+//		try (Connection con = DBManager.getcon();) {
+//			String sql = "UPDATE `Tour` SET `Password` = ?, `FullName` = ?, `MobileNumber` = ? WHERE `EmailId` = BINARY ?;";
+//			PreparedStatement ps = con.prepareStatement(sql);
+//			ps.setString(1, t.getPackageName());
+//			ps.setString(2, t.getPackageType());
+//			ps.setString(3, t.getPackageLocation());
+//			ps.setDate(4, new Date((t.getFrom()).getTime()));
+//			ps.setDate(5, new Date((t.getTo()).getTime()));
+//			ps.setInt(6, t.getPackagePrice());
+//			ps.setString(7, t.getPackageFeatures());
+//			ps.setString(8, t.getPackageDetails());
+//			ps.setString(9, t.getPackageImage());
+//			int rowsUpdated = ps.executeUpdate();
+//			if (rowsUpdated > 0) {
+//				System.out.println("An existing user was updated successfully!");
+//			}
+//		} catch (Exception e) {
+//			System.out.println(e);
+//		}
+//	}
 
-	public void delete(Integer id) {
-		try (Connection con = DBManager.getcon();) {
-			String sql = "DELETE FROM 'Tour' WHERE 'PackageId' = ?";
-			PreparedStatement statement = con.prepareStatement(sql);
-			statement.setInt(1, id);
-			int rowsDeleted = statement.executeUpdate();
-			if (rowsDeleted > 0) {
-				System.out.println("A Tour was deleted successfully!");
-			}
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}
+//	public void delete(Integer id) {
+//		try (Connection con = DBManager.getcon();) {
+//			String sql = "DELETE FROM 'Tour' WHERE 'PackageId' = ?";
+//			PreparedStatement statement = con.prepareStatement(sql);
+//			statement.setInt(1, id);
+//			int rowsDeleted = statement.executeUpdate();
+//			if (rowsDeleted > 0) {
+//				System.out.println("A Tour was deleted successfully!");
+//			}
+//		} catch (Exception e) {
+//			System.out.println(e);
+//		}
+//	}
 }

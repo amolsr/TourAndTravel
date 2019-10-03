@@ -7,14 +7,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.tnt.dao.UserDao;
-import com.tnt.model.User;
+import com.tnt.dao.EnquiryDao;
+import com.tnt.model.Enquiry;
 
 /**
- * Servlet implementation class ManageUser
+ * Servlet implementation class ManageEnquiry
  */
-@WebServlet("/Admin/ManageUser")
-public class ManageUser extends HttpServlet {
+@WebServlet("/Admin/ManageEnquiry")
+public class ManageEnquiry extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -23,9 +23,9 @@ public class ManageUser extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		User[] arr = UserDao.getUserDao().getAllUser();
-		request.setAttribute("User", arr);
-		request.getRequestDispatcher("DashBoard?content=user").forward(request, response);
+		Enquiry[] arr = EnquiryDao.getEnquiryDao().getAllEnquiry();
+		request.setAttribute("Enquiry", arr);
+		request.getRequestDispatcher("DashBoard?content=enquiry").forward(request, response);
 	}
 
 }

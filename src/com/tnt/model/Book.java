@@ -4,15 +4,13 @@ import java.util.Date;
 
 public class Book {
 	private Integer BookingId;
-	private String Name;
-	private String MobileNumber;
-	private String EmailId;
-	private String PackageId;
-	private Date from;
-	private Date to;
-	private String comment;
-	private String Status;
-	private String Action;
+	private Integer PackageId;
+	private String UserEmail;
+	private Date RegDate;
+	private Date UpdationDate;
+	private String Comment;
+	private String status;
+	private String CancelledBy;
 
 	public Integer getBookingId() {
 		return BookingId;
@@ -22,76 +20,60 @@ public class Book {
 		BookingId = bookingId;
 	}
 
-	public String getName() {
-		return Name;
-	}
-
-	public void setName(String name) {
-		Name = name;
-	}
-
-	public String getMobileNumber() {
-		return MobileNumber;
-	}
-
-	public void setMobileNumber(String mobileNumber) {
-		MobileNumber = mobileNumber;
-	}
-
-	public String getEmailId() {
-		return EmailId;
-	}
-
-	public void setEmailId(String emailId) {
-		EmailId = emailId;
-	}
-
-	public String getPackageId() {
+	public Integer getPackageId() {
 		return PackageId;
 	}
 
-	public void setPackageId(String packageId) {
+	public void setPackageId(Integer packageId) {
 		PackageId = packageId;
 	}
 
-	public Date getFrom() {
-		return from;
+	public String getUserEmail() {
+		return UserEmail;
 	}
 
-	public void setFrom(Date from) {
-		this.from = from;
+	public void setUserEmail(String userEmail) {
+		UserEmail = userEmail;
 	}
 
-	public Date getTo() {
-		return to;
+	public Date getRegDate() {
+		return RegDate;
 	}
 
-	public void setTo(Date to) {
-		this.to = to;
+	public void setRegDate(Date regDate) {
+		RegDate = regDate;
+	}
+
+	public Date getUpdationDate() {
+		return UpdationDate;
+	}
+
+	public void setUpdationDate(Date updationDate) {
+		UpdationDate = updationDate;
 	}
 
 	public String getComment() {
-		return comment;
+		return Comment;
 	}
 
 	public void setComment(String comment) {
-		this.comment = comment;
+		Comment = comment;
 	}
 
 	public String getStatus() {
-		return Status;
+		return status;
 	}
 
 	public void setStatus(String status) {
-		Status = status;
+		this.status = status;
 	}
 
-	public String getAction() {
-		return Action;
+	public String getCancelledBy() {
+		return CancelledBy;
 	}
 
-	public void setAction(String action) {
-		Action = action;
+	public void setCancelledBy(String cancelledBy) {
+		CancelledBy = cancelledBy;
 	}
 
 }
