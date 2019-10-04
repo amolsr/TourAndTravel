@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import com.tnt.model.Book;
+import com.tnt.model.Booking;
 
 public class BookDao {
 	private static BookDao B = new BookDao();
@@ -18,27 +18,50 @@ public class BookDao {
 		// TODO Auto-generated constructor stub
 	};
 
-//	public int create(Book b) {
-//		int i = 0;
-//		try (Connection con = DBManager.getcon();) {
-//			String sql = "INSERT INTO `Book` () VALUES(?, ?, ?, ?) ";
-//			PreparedStatement ps = con.prepareStatement(sql);
-//			ps.setString(1, b.getFullName());
-//			ps.setString(2, b.getMobileNumber());
-//			ps.setString(3, b.getEmailId());
-//			ps.setString(4, b.getPassword());
-//			i = ps.executeUpdate();
-//			if (i > 0) {
-//				System.out.println("A new Booking was inserted successfully!");
-//			}
-//		} catch (Exception e) {
-//			System.out.println(e);
-//		}
-//		return i;
-//	}
+	public int create(Booking b) {
+		int i = 0;
+		try (Connection con = DBManager.getcon();) {
+			String sql = "INSERT INTO `Book`( PackageId , UserEmail , Comment) VALUES(?, ?, ?) ";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, b.getPackageId());
+			ps.setString(2, b.getUserEmail());
+			ps.setString(3, b.getComment());
+			i = ps.executeUpdate();
+			if (i > 0) {
+				System.out.println("A new Booking was inserted successfully!");
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return i;
+	}
 
-	public Book[] getAllBooking() {
-		Book[] arr = null;
+	public Booking getBookingById(Integer i) {
+		Booking b = null;
+		String sql = "SELECT * FROM `Booking` WHERE `BookingId` = BINARY ? ;";
+		try (Connection con = DBManager.getcon();) {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, i);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				b = new Booking();
+				b.setBookingId(rs.getInt("BookingId"));
+				b.setPackageId(rs.getInt("PackageId"));
+				b.setUserEmail(rs.getString("UserEmail"));
+				b.setComment(rs.getString("Comment"));
+				b.setRegDate(rs.getDate("RegDate"));
+				b.setStatus(rs.getString("status"));
+				b.setUpdationDate(rs.getDate("UpdationDate"));
+				b.setCancelledBy(rs.getString("CancelledBy"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return b;
+	}
+
+	public Booking[] getAllBooking() {
+		Booking[] arr = null;
 		String sql = "SELECT * FROM `Book`;";
 		try (Connection con = DBManager.getcon();) {
 			Statement statement = con.createStatement();
@@ -46,11 +69,11 @@ public class BookDao {
 			rs.last();
 			int totalRows = rs.getRow();
 			rs.beforeFirst();
-			arr = new Book[totalRows];
+			arr = new Booking[totalRows];
 			if (totalRows != 0) {
 				int i = 0;
 				while (rs.next()) {
-					arr[i] = new Book();
+					arr[i] = new Booking();
 					arr[i].setBookingId(rs.getInt("BookingId"));
 					arr[i].setPackageId(rs.getInt("PackageId"));
 					arr[i].setUserEmail(rs.getString("UserEmail"));
@@ -69,20 +92,19 @@ public class BookDao {
 		return arr;
 	}
 
-//	public void Update(Book b) {
-//		try (Connection con = DBManager.getcon();) {
-//			String sql = "UPDATE `Users` SET `Password` = ?, `FullName` = ?, `MobileNumber` = ? WHERE `EmailId` = BINARY ?;";
-//			PreparedStatement statement = con.prepareStatement(sql);
-//			statement.setString(1, b.getPassword());
-//			statement.setString(2, b.getFullName());
-//			statement.setString(3, b.getMobileNumber());
-//			statement.setString(4, b.getEmailId());
-//			int rowsUpdated = statement.executeUpdate();
-//			if (rowsUpdated > 0) {
-//				System.out.println("An existing user was updated successfully!");
-//			}
-//		} catch (Exception e) {
-//			System.out.println(e);
-//		}
-//	}
+	public void Update(Booking b) {
+		try (Connection con = DBManager.getcon();) {
+			String sql = "UPDATE `Booking` SET `status` = ? AND `CancelledBy` = ? WHERE `BookingId` = ? ;";
+			PreparedStatement statement = con.prepareStatement(sql);
+			statement.setString(1, b.getStatus());
+			statement.setString(2, b.getCancelledBy());
+			statement.setInt(3, b.getBookingId());
+			int rowsUpdated = statement.executeUpdate();
+			if (rowsUpdated > 0) {
+				System.out.println("An existing Booking was updated successfully!");
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
 }

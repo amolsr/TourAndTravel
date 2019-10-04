@@ -24,7 +24,8 @@ public class ManageTour extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Tour[] arr = TourDao.getTourDao().getAllTour();
+		TourDao T = TourDao.getTourDao();
+		Tour[] arr = T.getAllTour();
 		req.setAttribute("Tour", arr);
 		req.getRequestDispatcher("DashBoard?content=tour").forward(req, resp);
 	}

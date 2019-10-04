@@ -22,7 +22,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="temp" items="${Book}">
+					<c:forEach var="temp" items="${Booking}">
 						<tr>
 							<td>#BK-<c:out value="${temp.BookingId}"></c:out></td>
 							<td><a href="UpdatePackage?pid=${temp.PackageId}"><c:out
@@ -45,9 +45,9 @@
 								</c:choose></td>
 							<td><c:choose>
 									<c:when test="${(temp.CancelledBy eq null)}">
-										<a href="ManagePackage?bkid=11"
+										<a href="ManageBook?bkid=11"
 											onclick="return confirm('Do you really want to cancel booking')">Cancel</a>/
-										<a href="ManagePackage?bckid=11"
+										<a href="ManageBook?bckid=11"
 											onclick="return confirm('Do you really want to cancel booking')">Confirm</a>
 									</c:when>
 									<c:otherwise>

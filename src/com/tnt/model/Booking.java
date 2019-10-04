@@ -2,7 +2,7 @@ package com.tnt.model;
 
 import java.util.Date;
 
-public class Book {
+public class Booking {
 	private Integer BookingId;
 	private Integer PackageId;
 	private String UserEmail;
