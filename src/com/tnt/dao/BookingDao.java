@@ -7,21 +7,21 @@ import java.sql.Statement;
 
 import com.tnt.model.Booking;
 
-public class BookDao {
-	private static BookDao B = new BookDao();
+public class BookingDao {
+	private static BookingDao B = new BookingDao();
 
-	public static BookDao getBookDao() {
+	public static BookingDao getBookDao() {
 		return B;
 	}
 
-	private BookDao() {
+	private BookingDao() {
 		// TODO Auto-generated constructor stub
 	};
 
-	public int create(Booking b) {
+	public int create(Booking b) throws Exception {
 		int i = 0;
 		try (Connection con = DBManager.getcon();) {
-			String sql = "INSERT INTO `Book`( PackageId , UserEmail , Comment) VALUES(?, ?, ?) ";
+			String sql = "INSERT INTO `Booking`( PackageId , UserEmail , Comment) VALUES(?, ?, ?) ";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, b.getPackageId());
 			ps.setString(2, b.getUserEmail());
@@ -31,7 +31,8 @@ public class BookDao {
 				System.out.println("A new Booking was inserted successfully!");
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
+			throw e;
 		}
 		return i;
 	}
@@ -62,7 +63,7 @@ public class BookDao {
 
 	public Booking[] getAllBooking() {
 		Booking[] arr = null;
-		String sql = "SELECT * FROM `Book`;";
+		String sql = "SELECT * FROM `Booking`;";
 		try (Connection con = DBManager.getcon();) {
 			Statement statement = con.createStatement();
 			ResultSet rs = statement.executeQuery(sql);
@@ -88,6 +89,7 @@ public class BookDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+
 		}
 		return arr;
 	}
@@ -104,7 +106,7 @@ public class BookDao {
 				System.out.println("An existing Booking was updated successfully!");
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 	}
 }

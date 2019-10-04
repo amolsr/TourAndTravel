@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class Issue {
 	private Integer id;
-	private String UserEmail;
-	private String Issue;
-	private String Description;
-	private Date PostingDate;
-	private String AdminRemark;
-	private Date AdminremarkDate;
+	private String userEmail;
+	private String issue;
+	private String description;
+	private Date postingDate;
+	private String adminRemark;
+	private Date adminRemarkDate;
 
 	public Integer getId() {
 		return id;
@@ -20,51 +20,51 @@ public class Issue {
 	}
 
 	public String getUserEmail() {
-		return UserEmail;
+		return userEmail;
 	}
 
 	public void setUserEmail(String userEmail) {
-		UserEmail = userEmail;
+		this.userEmail = userEmail;
 	}
 
 	public String getIssue() {
-		return Issue;
+		return issue;
 	}
 
 	public void setIssue(String issue) {
-		Issue = issue;
+		this.issue = issue;
 	}
 
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 
 	public Date getPostingDate() {
-		return PostingDate;
+		return postingDate;
 	}
 
 	public void setPostingDate(Date postingDate) {
-		PostingDate = postingDate;
+		this.postingDate = postingDate;
 	}
 
 	public String getAdminRemark() {
-		return AdminRemark;
+		return adminRemark;
 	}
 
 	public void setAdminRemark(String adminRemark) {
-		AdminRemark = adminRemark;
+		this.adminRemark = adminRemark;
 	}
 
 	public Date getAdminremarkDate() {
-		return AdminremarkDate;
+		return adminRemarkDate;
 	}
 
-	public void setAdminremarkDate(Date adminremarkDate) {
-		AdminremarkDate = adminremarkDate;
+	public void setAdminremarkDate(Date adminRemarkDate) {
+		this.adminRemarkDate = adminRemarkDate;
 	}
 
 }

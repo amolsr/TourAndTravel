@@ -4,13 +4,13 @@ import java.util.Date;
 
 public class Enquiry {
 	private Integer id;
-	private String FullName;
-	private String EmailId;
-	private String MobileNumber;
-	private String Subject;
-	private String Description;
-	private Date PostingDate;
-	private String Status;
+	private String fullName;
+	private String emailId;
+	private String mobileNumber;
+	private String subject;
+	private String description;
+	private Date postingDate;
+	private String status;
 
 	public Integer getId() {
 		return id;
@@ -21,59 +21,59 @@ public class Enquiry {
 	}
 
 	public String getFullName() {
-		return FullName;
+		return fullName;
 	}
 
 	public void setFullName(String fullName) {
-		FullName = fullName;
+		this.fullName = fullName;
 	}
 
 	public String getEmailId() {
-		return EmailId;
+		return emailId;
 	}
 
 	public void setEmailId(String emailId) {
-		EmailId = emailId;
+		this.emailId = emailId;
 	}
 
 	public String getMobileNumber() {
-		return MobileNumber;
+		return mobileNumber;
 	}
 
 	public void setMobileNumber(String mobileNumber) {
-		MobileNumber = mobileNumber;
+		this.mobileNumber = mobileNumber;
 	}
 
 	public String getSubject() {
-		return Subject;
+		return subject;
 	}
 
 	public void setSubject(String subject) {
-		Subject = subject;
+		this.subject = subject;
 	}
 
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 
 	public Date getPostingDate() {
-		return PostingDate;
+		return postingDate;
 	}
 
 	public void setPostingDate(Date postingDate) {
-		PostingDate = postingDate;
+		this.postingDate = postingDate;
 	}
 
 	public String getStatus() {
-		return Status;
+		return status;
 	}
 
 	public void setStatus(String status) {
-		Status = status;
+		this.status = status;
 	}
 
 }

@@ -24,11 +24,11 @@
 					<c:forEach var="temp" items="${User}">
 						<tr>
 							<td><c:out value="${temp.id}"></c:out></td>
-							<td><c:out value="${temp.FullName}"></c:out></td>
-							<td><c:out value="${temp.MobileNumber}"></c:out></td>
-							<td><c:out value="${temp.EmailId}"></c:out></td>
-							<td><c:out value="${temp.RegDate}"></c:out></td>
-							<td><c:out value="${temp.UpdationDate}"></c:out></td>
+							<td><c:out value="${temp.fullName}"></c:out></td>
+							<td><c:out value="${temp.mobileNumber}"></c:out></td>
+							<td><c:out value="${temp.emailId}"></c:out></td>
+							<td><c:out value="${temp.regDate}"></c:out></td>
+							<td><c:out value="${temp.updationDate}"></c:out></td>
 						</tr>
 					</c:forEach>
 				</tbody>

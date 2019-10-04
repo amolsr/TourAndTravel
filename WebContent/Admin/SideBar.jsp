@@ -17,17 +17,15 @@
 						href="DashBoard?content=create">Create</a></li>
 					<li id="menu-academico-avaliacoes"><a href="ManageTour">Manage</a></li>
 				</ul></li>
-			<li id="menu-academico"><a href="DashBoard?content=user"><i
+			<li id="menu-academico"><a href="ManageUser"><i
 					class="fa fa-users" aria-hidden="true"></i><span>Manage
 						Users</span> </a></li>
-
-			<li><a href="DashBoard?content=book"><i class="fa fa-list"
+			<li><a href="ManageBooking"><i class="fa fa-list"
 					aria-hidden="true"></i> <span>Manage Booking</span> </a></li>
-			<li><a href="DashBoard?content=issue"><i class="fa fa-table"></i>
-					<span>Manage Issues</span> </a></li>
-			<li><a href="DashBoard?content=enquiry"><i
-					class="fa fa-file-text-o" aria-hidden="true"></i> <span>Manage
-						Enquiries</span> </a></li>
+			<li><a href="ManageIssue"><i class="fa fa-table"></i> <span>Manage
+						Issues</span> </a></li>
+			<li><a href="ManageEnquiry"><i class="fa fa-file-text-o"
+					aria-hidden="true"></i> <span>Manage Enquiries</span> </a></li>
 			<li><a href="manage-pages.jsp"><i class="fa fa-file-text-o"
 					aria-hidden="true"></i> <span>Manage Pages</span> </a></li>
 

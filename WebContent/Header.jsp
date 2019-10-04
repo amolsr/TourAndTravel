@@ -12,10 +12,10 @@
 				</ul>
 				<ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s">
 					<li class="tol">Toll Number : 123-4568790</li>
-					<li class="sig"><a href="#" data-toggle="modal"
-						data-target="#myModal">Sign Up</a></li>
-					<li class="sigi"><a href="#" data-toggle="modal"
-						data-target="#myModal4">/SignIn</a></li>
+					<li class="sig"><a href="#" id="btn-signup"
+						data-toggle="modal" data-target="#myModal">Sign Up</a></li>
+					<li class="sigi"><a href="#" id="btn-signin"
+						data-toggle="modal" data-target="#myModal4">/SignIn</a></li>
 				</ul>
 				<div class="clearfix"></div>
 			</c:when>
@@ -245,13 +245,15 @@
 							</c:when>
 							<c:otherwise>
 								<ul class="nav navbar-nav">
-									<li><a href="User?content=home">Home</a></li>
-									<li><a href="User?content=about">About</a></li>
-									<li><a href="User?content=package">Tour Packages</a></li>
-									<li><a href="User?content=privacy">Privacy Policy</a></li>
+									<li><a href="Home">Home</a></li>
+									<li><a href="Index?content=about">About</a></li>
+									<li><a href="ViewPackage">Tour Packages</a></li>
+									<li><a href="Index?content=privacy">Privacy Policy</a></li>
 									<li><a href="User?content=terms">Terms of Use</a></li>
-									<li><a href="User?content=contact">Contact Us</a></li>
-									<li><a href="User?content=help"> Help </a></li>
+									<li><a href="Index?content=contact">Contact Us</a></li>
+									<li>Need Help?<a href="#" data-toggle="modal"
+										data-target="#myModal3"> / Write Us </a>
+									</li>
 								</ul>
 							</c:otherwise>
 						</c:choose>

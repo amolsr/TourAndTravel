@@ -3,61 +3,61 @@ package com.tnt.model;
 import java.util.Date;
 
 public class Booking {
-	private Integer BookingId;
-	private Integer PackageId;
-	private String UserEmail;
-	private Date RegDate;
-	private Date UpdationDate;
-	private String Comment;
+	private Integer bookingId;
+	private Integer packageId;
+	private String userEmail;
+	private Date regDate;
+	private Date updationDate;
+	private String comment;
 	private String status;
-	private String CancelledBy;
+	private String cancelledBy;
 
 	public Integer getBookingId() {
-		return BookingId;
+		return bookingId;
 	}
 
 	public void setBookingId(Integer bookingId) {
-		BookingId = bookingId;
+		this.bookingId = bookingId;
 	}
 
 	public Integer getPackageId() {
-		return PackageId;
+		return packageId;
 	}
 
 	public void setPackageId(Integer packageId) {
-		PackageId = packageId;
+		this.packageId = packageId;
 	}
 
 	public String getUserEmail() {
-		return UserEmail;
+		return userEmail;
 	}
 
 	public void setUserEmail(String userEmail) {
-		UserEmail = userEmail;
+		this.userEmail = userEmail;
 	}
 
 	public Date getRegDate() {
-		return RegDate;
+		return regDate;
 	}
 
 	public void setRegDate(Date regDate) {
-		RegDate = regDate;
+		this.regDate = regDate;
 	}
 
 	public Date getUpdationDate() {
-		return UpdationDate;
+		return updationDate;
 	}
 
 	public void setUpdationDate(Date updationDate) {
-		UpdationDate = updationDate;
+		this.updationDate = updationDate;
 	}
 
 	public String getComment() {
-		return Comment;
+		return comment;
 	}
 
 	public void setComment(String comment) {
-		Comment = comment;
+		this.comment = comment;
 	}
 
 	public String getStatus() {
@@ -69,11 +69,11 @@ public class Booking {
 	}
 
 	public String getCancelledBy() {
-		return CancelledBy;
+		return cancelledBy;
 	}
 
 	public void setCancelledBy(String cancelledBy) {
-		CancelledBy = cancelledBy;
+		this.cancelledBy = cancelledBy;
 	}
 
 }

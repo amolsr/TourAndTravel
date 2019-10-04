@@ -54,7 +54,7 @@ public class UserDao {
 
 	public User[] getAllUser() {
 		User[] arr = null;
-		String sql = "SELECT * FROM `Tour`;";
+		String sql = "SELECT * FROM `Users`;";
 		try (Connection con = DBManager.getcon();) {
 			Statement statement = con.createStatement();
 			ResultSet rs = statement.executeQuery(sql);
@@ -77,7 +77,7 @@ public class UserDao {
 			} else {
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		return arr;
 	}

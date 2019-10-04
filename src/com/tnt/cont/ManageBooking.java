@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.tnt.dao.BookDao;
+import com.tnt.dao.BookingDao;
 import com.tnt.model.Booking;
 
 /**
@@ -23,7 +23,7 @@ public class ManageBooking extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		BookDao B = BookDao.getBookDao();
+		BookingDao B = BookingDao.getBookDao();
 		if (request.getParameter("bkid") != null) {
 			Integer id = Integer.parseInt(request.getParameter("bkid"));
 			Booking b = B.getBookingById(id);
@@ -36,6 +36,7 @@ public class ManageBooking extends HttpServlet {
 			b.setCancelledBy("a");
 			B.Update(b);
 		} else {
+			System.out.println(1);
 			Booking[] arr = B.getAllBooking();
 			request.setAttribute("Booking", arr);
 			request.getRequestDispatcher("DashBoard?content=book").forward(request, response);

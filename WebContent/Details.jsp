@@ -11,7 +11,7 @@
 <div class="selectroom">
 	<div class="container">
 		<c:set var="temp" scope="page" value="${Package}" />
-		<form name="book" method="post">
+		<form>
 			<div class="selectroom_top">
 				<div class="col-md-4 selectroom_left wow fadeInLeft animated"
 					data-wow-delay=".5s">
@@ -25,6 +25,8 @@
 					<p class="dow">
 						#PKG-
 						<c:out value="${temp.id}"></c:out>
+						<input type="text" name="pkgid" style="display: none;"
+							value="${temp.id}">
 					</p>
 					<p>
 						<b>Package Type :</b>
@@ -40,14 +42,12 @@
 					</p>
 					<div class="ban-bottom">
 						<div class="bnr-right">
-							<label class="inputLabel">From</label> <input class="date"
-								id="datepicker" type="text" placeholder="dd-mm-yyyy"
-								name="fromdate" required="">
+							<label class="inputLabel">From</label>
+							<h5>${temp.from}</h5>
 						</div>
 						<div class="bnr-right">
-							<label class="inputLabel">To</label> <input class="date"
-								id="datepicker1" type="text" placeholder="dd-mm-yyyy"
-								name="todate" required="">
+							<label class="inputLabel">To</label>
+							<h5>${temp.to}</h5>
 						</div>
 					</div>
 					<div class="clearfix"></div>
@@ -71,19 +71,17 @@
 					data-wow-duration="1200ms" data-wow-delay="500ms"
 					style="visibility: visible; animation-duration: 1200ms; animation-delay: 500ms; animation-name: fadeInUp; margin-top: -70px">
 					<ul>
-
 						<li class="spe"><label class="inputLabel">Comment</label> <input
 							class="special" type="text" name="comment" required></li>
-						<li class="sigi" align="center" style="margin-top: 1%"><a
-							href="#" data-toggle="modal" data-target="#myModal4"
-							class="btn-primary btn"> Book</a></li>
+						<li class="spe" align="center"><button type="submit"
+								name="submit2" class="btn-primary btn">Book</button></li>
 						<div class="clearfix"></div>
 					</ul>
 				</div>
 
 			</div>
 		</form>
-
+		<script type="text/javascript" src="js/Booking.js"></script>
 
 	</div>
 </div>

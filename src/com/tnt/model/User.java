@@ -2,12 +2,12 @@ package com.tnt.model;
 
 public class User {
 	private Integer id;
-	private String FullName;
-	private String MobileNumber;
-	private String EmailId;
+	private String fullName;
+	private String mobileNumber;
+	private String emailId;
 	private String password;
-	private String RegDate;
-	private String UpdationDate;
+	private String regDate;
+	private String updationDate;
 
 	public Integer getId() {
 		return id;
@@ -18,19 +18,19 @@ public class User {
 	}
 
 	public String getFullName() {
-		return FullName;
+		return fullName;
 	}
 
 	public void setFullName(String fullName) {
-		FullName = fullName;
+		this.fullName = fullName;
 	}
 
 	public String getMobileNumber() {
-		return MobileNumber;
+		return mobileNumber;
 	}
 
 	public void setMobileNumber(String mobileNumber) {
-		MobileNumber = mobileNumber;
+		this.mobileNumber = mobileNumber;
 	}
 
 	public String getPassword() {
@@ -42,27 +42,27 @@ public class User {
 	}
 
 	public String getEmailId() {
-		return EmailId;
+		return emailId;
 	}
 
 	public void setEmailId(String emailId) {
-		EmailId = emailId;
+		this.emailId = emailId;
 	}
 
 	public String getRegDate() {
-		return RegDate;
+		return regDate;
 	}
 
 	public void setRegDate(String regDate) {
-		RegDate = regDate;
+		this.regDate = regDate;
 	}
 
 	public String getUpdationDate() {
-		return UpdationDate;
+		return updationDate;
 	}
 
 	public void setUpdationDate(String updationDate) {
-		UpdationDate = updationDate;
+		this.updationDate = updationDate;
 	}
 
 }

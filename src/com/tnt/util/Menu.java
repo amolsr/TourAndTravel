@@ -21,7 +21,7 @@ public class Menu {
 		pages.put("about", "AboutUs.jsp");
 		pages.put("tour", "ManageTour.jsp");
 		pages.put("user", "ManageUser.jsp");
-		pages.put("book", "ManageBook.jsp");
+		pages.put("book", "ManageBooking.jsp");
 		pages.put("enquiry", "ManageEnquiries.jsp");
 		pages.put("issue", "ManageIssues.jsp");
 

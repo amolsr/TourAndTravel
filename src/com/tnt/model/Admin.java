@@ -1,15 +1,15 @@
 package com.tnt.model;
 
 public class Admin {
-	private String User;
+	private String user;
 	private String pass;
 
 	public String getUser() {
-		return User;
+		return user;
 	}
 
 	public void setUser(String user) {
-		User = user;
+		this.user = user;
 	}
 
 	public String getPass() {
