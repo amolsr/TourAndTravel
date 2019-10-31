@@ -32,7 +32,7 @@ public class TourDao {
 			ps.setString(7, t.getPackageFeatures());
 			ps.setString(8, t.getPackageDetails());
 			ps.setString(9, t.getPackageImage());
-			i = ps.executeUpdate();
+//			i = ps.executeUpdate();
 			if (i > 0) {
 				System.out.println("A new tour was inserted successfully!");
 			}
@@ -60,8 +60,8 @@ public class TourDao {
 					arr[i].setPackageName(rs.getString("PackageName"));
 					arr[i].setPackageType(rs.getString("PackageType"));
 					arr[i].setPackageLocation(rs.getString("PackageLocation"));
-					arr[i].setFrom(rs.getDate("From"));
-					arr[i].setTo(rs.getDate("to"));
+					arr[i].setFrom(new java.util.Date(rs.getDate("From").getTime()));
+					arr[i].setTo(new java.util.Date(rs.getDate("to").getTime()));
 					arr[i].setPackagePrice(rs.getInt("PackagePrice"));
 					arr[i].setPackageFeatures(rs.getString("PackageFeatures"));
 					arr[i].setPackageDetails(rs.getString("PackageDetails"));
@@ -96,8 +96,8 @@ public class TourDao {
 					arr[i].setPackageName(rs.getString("PackageName"));
 					arr[i].setPackageType(rs.getString("PackageType"));
 					arr[i].setPackageLocation(rs.getString("PackageLocation"));
-					arr[i].setFrom(rs.getDate("From"));
-					arr[i].setTo(rs.getDate("to"));
+					arr[i].setFrom(new java.util.Date(rs.getDate("From").getTime()));
+					arr[i].setTo(new java.util.Date(rs.getDate("to").getTime()));
 					arr[i].setPackagePrice(rs.getInt("PackagePrice"));
 					arr[i].setPackageFeatures(rs.getString("PackageFeatures"));
 					arr[i].setPackageDetails(rs.getString("PackageDetails"));
@@ -127,8 +127,8 @@ public class TourDao {
 				t.setPackageName(rs.getString("PackageName"));
 				t.setPackageType(rs.getString("PackageType"));
 				t.setPackageLocation(rs.getString("PackageLocation"));
-				t.setFrom(rs.getDate("From"));
-				t.setTo(rs.getDate("to"));
+				t.setFrom(new java.util.Date(rs.getDate("From").getTime()));
+				t.setTo(new java.util.Date(rs.getDate("to").getTime()));
 				t.setPackagePrice(rs.getInt("PackagePrice"));
 				t.setPackageFeatures(rs.getString("PackageFeatures"));
 				t.setPackageDetails(rs.getString("PackageDetails"));

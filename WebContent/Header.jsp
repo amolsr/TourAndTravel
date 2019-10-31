@@ -22,18 +22,18 @@
 			<c:otherwise>
 				<ul class="tp-hd-lft wow fadeInLeft animated" data-wow-delay=".5s">
 					<li class="hm"><a href=""><i class="fa fa-home"></i></a></li>
-					<li class="prnt"><a href="profile.php">My Profile</a></li>
-					<li class="prnt"><a href="change-password.php">Change
+					<li class="prnt"><a href="User?content=profile">My Profile</a></li>
+					<li class="prnt"><a href="User?content=changepass">Change
 							Password</a></li>
-					<li class="prnt"><a href="tour-history.php">My Tour
+					<li class="prnt"><a href="User?content=history">My Tour
 							History</a></li>
-					<li class="prnt"><a href="issuetickets.php">Issue Tickets</a></li>
+					<li class="prnt"><a href="User?content=issue">Issue
+							Tickets</a></li>
 				</ul>
 			</c:otherwise>
 		</c:choose>
 		<c:choose>
 			<c:when test="${Email eq null}">
-
 				<!-- signup -->
 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 					aria-labelledby="myModalLabel">
@@ -92,7 +92,6 @@
 				<script type="text/javascript" src="js/Register.js"></script>
 				<!-- //signu -->
 				<!-- signin -->
-
 				<div class="modal fade" id="myModal4" tabindex="-1" role="dialog"
 					aria-labelledby="myModalLabel">
 					<div class="modal-dialog" role="document">
@@ -140,9 +139,15 @@
 						</div>
 					</div>
 				</div>
-
 				<script type="text/javascript" src="js/SignIn.js"></script>
 				<!-- //signin -->
+			</c:when>
+			<c:otherwise>
+				<ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s">
+					<li class="tol">Welcome :</li>
+					<li class="sig">${Email}</li>
+					<li class="sigi"><a href="./Logout">/ Log Out</a></li>
+				</ul>
 				<!-- write us -->
 				<div class="modal fade" id="myModal3" tabindex="-1" role="dialog"
 					aria-labelledby="myModalLabel">
@@ -160,7 +165,6 @@
 										<div class="writ">
 											<h4>HOW CAN WE HELP YOU</h4>
 											<ul>
-
 												<li class="na-me"><select id="country" name="issue"
 													class="frm-field required sect" required>
 														<option value="">Select Issue</option>
@@ -169,16 +173,12 @@
 														<option value="Refund">Refund</option>
 														<option value="Other">Other</option>
 												</select></li>
-
 												<li class="descrip"><input class="special" type="text"
 													placeholder="description" name="description" required>
 												</li>
-
 											</ul>
 											<div class="sub-bn">
-												<form>
-													<button type="submit" name="submit" class="subbtn">Submit</button>
-												</form>
+												<button type="submit" name="submit" class="subbtn">Submit</button>
 											</div>
 										</div>
 									</div>
@@ -187,13 +187,6 @@
 						</div>
 					</div>
 				</div>
-			</c:when>
-			<c:otherwise>
-				<ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s">
-					<li class="tol">Welcome :</li>
-					<li class="sig">${Email}</li>
-					<li class="sigi"><a href="./Logout">/ Log Out</a></li>
-				</ul>
 			</c:otherwise>
 		</c:choose>
 
@@ -231,32 +224,24 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse nav-wil" id="navcol-1">
 					<nav class="cl-effect-1">
-						<c:choose>
-							<c:when test="${Email eq null}">
-								<ul class="nav navbar-nav">
-									<li><a href="Home">Home</a></li>
-									<li><a href="Index?content=about">About</a></li>
-									<li><a href="ViewPackage">Tour Packages</a></li>
-									<li><a href="Index?content=privacy">Privacy Policy</a></li>
-									<li><a href="Index?content=terms">Terms of Use</a></li>
-									<li><a href="Index?content=contact">Contact Us</a></li>
+						<ul class="nav navbar-nav">
+							<li><a href="Home">Home</a></li>
+							<li><a href="Index?content=about">About</a></li>
+							<li><a href="ViewPackage">Tour Packages</a></li>
+							<li><a href="Index?content=privacy">Privacy Policy</a></li>
+							<li><a href="Index?content=terms">Terms of Use</a></li>
+							<li><a href="Index?content=contact">Contact Us</a></li>
+							<c:choose>
+								<c:when test="${Email eq null}">
 									<li><a href="Index?content=enquiry"> Enquiry </a></li>
-								</ul>
-							</c:when>
-							<c:otherwise>
-								<ul class="nav navbar-nav">
-									<li><a href="Home">Home</a></li>
-									<li><a href="Index?content=about">About</a></li>
-									<li><a href="ViewPackage">Tour Packages</a></li>
-									<li><a href="Index?content=privacy">Privacy Policy</a></li>
-									<li><a href="User?content=terms">Terms of Use</a></li>
-									<li><a href="Index?content=contact">Contact Us</a></li>
+								</c:when>
+								<c:otherwise>
 									<li>Need Help?<a href="#" data-toggle="modal"
 										data-target="#myModal3"> / Write Us </a>
 									</li>
-								</ul>
-							</c:otherwise>
-						</c:choose>
+								</c:otherwise>
+							</c:choose>
+						</ul>
 					</nav>
 				</div>
 				<!-- /.navbar-collapse -->

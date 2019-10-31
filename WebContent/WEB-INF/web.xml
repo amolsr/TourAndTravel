@@ -33,6 +33,7 @@
 	<servlet>
 		<servlet-name>Admin</servlet-name>
 		<jsp-file>/Admin/DashBoard.jsp</jsp-file>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Admin</servlet-name>

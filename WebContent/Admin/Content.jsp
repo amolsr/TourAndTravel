@@ -1,6 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.HashMap"%>
-<jsp:useBean id="t" class="com.tnt.util.Menu"></jsp:useBean>
+<jsp:useBean id="t" class="com.tnt.util.AdminMenu"></jsp:useBean>
 <div class="content">
 	<c:choose>
 		<c:when test="${param.content == null}">

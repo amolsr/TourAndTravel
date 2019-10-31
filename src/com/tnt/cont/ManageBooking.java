@@ -36,7 +36,6 @@ public class ManageBooking extends HttpServlet {
 			b.setCancelledBy("a");
 			B.Update(b);
 		} else {
-			System.out.println(1);
 			Booking[] arr = B.getAllBooking();
 			request.setAttribute("Booking", arr);
 			request.getRequestDispatcher("DashBoard?content=book").forward(request, response);

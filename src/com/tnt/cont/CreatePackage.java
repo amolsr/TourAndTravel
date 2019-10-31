@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +27,9 @@ import com.tnt.model.Tour;
 /**
  * Servlet implementation class CreatePackage
  */
-@WebServlet("/Admin/CreatePackage")
+@WebServlet(urlPatterns = "/Admin/CreatePackage", initParams = {
+		@WebInitParam(name = "saveDir", value = "D:/FileUpload"),
+		@WebInitParam(name = "allowedTypes", value = "jpg,jpeg,gif,png") })
 public class CreatePackage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -40,7 +43,7 @@ public class CreatePackage extends HttpServlet {
 		response.setContentType("text/html");
 		Tour t = new Tour();
 		TourDao T = TourDao.getTourDao();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		PrintWriter out = response.getWriter();
 		String path = new String();
 		if (isMultipart) {
@@ -55,7 +58,9 @@ public class CreatePackage extends HttpServlet {
 					if (!item.isFormField()) {
 						String fileName = item.getName();
 						if (fileName != "") {
-							String root = getServletContext().getRealPath("/");
+							String root;
+//							root = getServletContext().getRealPath("/");
+							root = getInitParameter("saveDir");
 							File savePath = new File(root + File.separator + Name);
 							if (!savePath.exists()) {
 								boolean status = savePath.mkdirs();

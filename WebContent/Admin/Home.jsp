@@ -3,6 +3,7 @@
 		class="fa fa-angle-right"></i></li>
 </ol>
 <!--four-grids here-->
+<script type="text/javascript" src="./js/Dashboard.js"></script>
 <div class="four-grids">
 	<div class="col-md-3 four-grid">
 		<div class="four-agileits">
@@ -11,11 +12,8 @@
 			</div>
 			<div class="four-text">
 				<h3>User</h3>
-
 				<h4>7</h4>
-
 			</div>
-
 		</div>
 	</div>
 	<div class="col-md-3 four-grid">
@@ -26,9 +24,7 @@
 			<div class="four-text">
 				<h3>Bookings</h3>
 				<h4>10</h4>
-
 			</div>
-
 		</div>
 	</div>
 	<div class="col-md-3 four-grid">
@@ -39,9 +35,7 @@
 			<div class="four-text">
 				<h3>Enquiries</h3>
 				<h4>4</h4>
-
 			</div>
-
 		</div>
 	</div>
 	<div class="col-md-3 four-grid">
@@ -52,9 +46,7 @@
 			<div class="four-text">
 				<h3>Total packages</h3>
 				<h4>6</h4>
-
 			</div>
-
 		</div>
 	</div>
 	<div class="clearfix"></div>
@@ -69,9 +61,7 @@
 			<div class="four-text">
 				<h3>Issues Raised</h3>
 				<h4>4</h4>
-
 			</div>
-
 		</div>
 	</div>
 	<div class="clearfix"></div>
