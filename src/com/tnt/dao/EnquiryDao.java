@@ -1,10 +1,12 @@
 package com.tnt.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 import com.tnt.model.Enquiry;
+import com.tnt.model.Issue;
 
 public class EnquiryDao {
 	private static EnquiryDao E = new EnquiryDao();
@@ -17,9 +19,23 @@ public class EnquiryDao {
 		// TODO Auto-generated constructor stub
 	};
 
-	public int create(Enquiry e) {
-		return 0;
-
+	public int create(Enquiry e) throws Exception {
+		int i = 0;
+		try (Connection con = DBManager.getcon();) {
+			String sql = "INSERT INTO `Issues`( UserEmail , Issue , Description,) VALUES(?, ?, ?) ";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, e.getUserEmail());
+			ps.setString(2, e.getIssue());
+			ps.setString(3, e.getDescription());
+			i = ps.executeUpdate();
+			if (i > 0) {
+				System.out.println("A new Issue was inserted successfully!");
+			}
+		} catch (Exception e1) {
+			e1.printStackTrace();
+			throw e1;
+		}
+		return i;
 	}
 
 	public Enquiry[] getAllEnquiry() {

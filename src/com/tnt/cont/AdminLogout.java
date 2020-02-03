@@ -13,9 +13,6 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet("/Admin/Logout")
 public class AdminLogout extends HttpServlet {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 2193624889025736857L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

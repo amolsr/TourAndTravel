@@ -32,7 +32,7 @@ public class TourDao {
 			ps.setString(7, t.getPackageFeatures());
 			ps.setString(8, t.getPackageDetails());
 			ps.setString(9, t.getPackageImage());
-//			i = ps.executeUpdate();
+			i = ps.executeUpdate();
 			if (i > 0) {
 				System.out.println("A new tour was inserted successfully!");
 			}

@@ -96,7 +96,7 @@ public class BookingDao {
 
 	public void Update(Booking b) {
 		try (Connection con = DBManager.getcon();) {
-			String sql = "UPDATE `Booking` SET `status` = ? AND `CancelledBy` = ? WHERE `BookingId` = ? ;";
+			String sql = "UPDATE `Booking` SET `status` = ? , `CancelledBy` = ? WHERE `BookingId` = ? ;";
 			PreparedStatement statement = con.prepareStatement(sql);
 			statement.setString(1, b.getStatus());
 			statement.setString(2, b.getCancelledBy());

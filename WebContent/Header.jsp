@@ -160,7 +160,7 @@
 								</button>
 							</div>
 							<section>
-								<form name="help" method="post">
+								<form action="CreateIssue" name="help" method="post">
 									<div class="modal-body modal-spa">
 										<div class="writ">
 											<h4>HOW CAN WE HELP YOU</h4>

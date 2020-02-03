@@ -1,6 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="p"%>
 <%@page import="java.util.HashMap"%>
-<jsp:useBean id="a" class="com.tnt.util.Menu"></jsp:useBean>
+<jsp:useBean id="a" class="com.luxury.util.Menu"></jsp:useBean>
 <div class="content">
 	<p:choose>
 		<p:when test="${param.content == null}">
