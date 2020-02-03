@@ -33,14 +33,12 @@ public class CreateEnquiry extends HttpServlet {
 //		if (i.getIssue().equals("")) {
 //			response.getWriter().print("Please Select Issue.");
 //		} else {
-			try {
-				E.create(e);
-			} catch (Exception e1) {
-				response.getWriter().print("Error");
-			}
-			response.getWriter().print("Success");
-		}
+//			try {
+//				E.create(e);
+//			} catch (Exception e1) {
+//				response.getWriter().print("Error");
+//			}
+//			response.getWriter().print("Success");
+//		}
 	}
-	}
-
 }
