@@ -26,12 +26,13 @@ public class CreateEnquiry extends HttpServlet {
 			throws ServletException, IOException {
 		Enquiry e = new Enquiry();
 		EnquiryDao E = EnquiryDao.getEnquiryDao();
-		i.setUserEmail(String.valueOf(session.getAttribute("Email")));
-		i.setIssue(request.getParameter("issue"));
-		i.setDescription(request.getParameter("description"));
-		if (i.getIssue().equals("")) {
-			response.getWriter().print("Please Select Issue.");
-		} else {
+		HttpSession session = request.getSession();
+//		e.setUserEmail(String.valueOf(session.getAttribute("Email")));
+//		e.setIssue(request.getParameter("issue"));
+//		e.setDescription(request.getParameter("description"));
+//		if (i.getIssue().equals("")) {
+//			response.getWriter().print("Please Select Issue.");
+//		} else {
 			try {
 				E.create(e);
 			} catch (Exception e1) {
