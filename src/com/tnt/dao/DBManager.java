@@ -13,8 +13,7 @@ public class DBManager {
 
 	public static Connection getcon() throws SQLException {
 		try {
-			Class.forName("org.postgresql.Driver");
-			con = DriverManager.getConnection(System.getenv("DATABASE_URL"), System.getenv("DBUSER"), System.getenv("DBPASS"));
+			con = DriverManager.getConnection("jdbc:"+System.getenv("DATABASE_URL"), System.getenv("DBUSER"), System.getenv("DBPASS"));
 		} catch (Exception e) {
 			System.out.println(e);
 		}
