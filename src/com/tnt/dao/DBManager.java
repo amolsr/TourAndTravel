@@ -13,7 +13,7 @@ public class DBManager {
 
 	public static Connection getcon() throws SQLException {
 		try {
-			con = DriverManager.getConnection(DBIntializer.CON_STRING, DBIntializer.USERNAME, DBIntializer.PASSWORD);
+			con = DriverManager.getConnection(System.getenv("DATABASE_URL"), System.getenv("DBUSER"), System.getenv("DBPASS"));
 		} catch (Exception e) {
 			System.out.println(e);
 		}
