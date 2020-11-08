@@ -34,8 +34,7 @@ public class Initializer implements ServletContextListener {
 	public void contextInitialized(ServletContextEvent sce) {
 		Connection con;
 		try {
-			Class.forName("org.postgresql.Driver");
-			con = DriverManager.getConnection(System.getenv("DATABASE_URL"), System.getenv("DBUSER"), System.getenv("DBPASS"));
+			con = DriverManager.getConnection("jdbc:" + System.getenv("DATABASE_URL"), System.getenv("DBUSER"), System.getenv("DBPASS"));
 			Statement stmt = con.createStatement();
 			String User = "CREATE TABLE `Users` (`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,`FullName` varchar(100) DEFAULT NULL,`MobileNumber` char(10) DEFAULT NULL,`EmailId` varchar(70) DEFAULT NULL,`Password` varchar(100) DEFAULT NULL,`RegDate` timestamp NULL DEFAULT current_timestamp(),`UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 			String Admin = "CREATE TABLE `Admin` (`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,`User` varchar(70) DEFAULT NULL,`Password` varchar(100) DEFAULT NULL,`RegDate` timestamp NULL DEFAULT current_timestamp(),`UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
