@@ -20,7 +20,7 @@ public class TourDao {
 
 	public int create(Tour t) {
 		int i = 0;
-		String sql = "INSERT INTO `Tour` ( `PackageName`, `PackageType`, `PackageLocation`, `From`, `TO`, `PackagePrice`, `PackageFeatures`, `PackageDetails`, `PackageImage`) VALUES(? ,? ,? ,? ,? ,? ,? ,?, ? ) ";
+		String sql = "INSERT INTO Tour ( PackageName, PackageType, PackageLocation, From, TO, PackagePrice, PackageFeatures, PackageDetails, PackageImage) VALUES(? ,? ,? ,? ,? ,? ,? ,?, ? ) ";
 		try (Connection con = DBManager.getcon();) {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, t.getPackageName());
@@ -44,7 +44,7 @@ public class TourDao {
 
 	public Tour[] retriveFour() {
 		Tour[] arr = null;
-		String sql = "SELECT * from `Tour` order by rand() limit 4";
+		String sql = "SELECT * from Tour order by rand() limit 4";
 		try (Connection con = DBManager.getcon();) {
 			Statement statement = con.createStatement();
 			ResultSet rs = statement.executeQuery(sql);
@@ -80,7 +80,7 @@ public class TourDao {
 
 	public Tour[] getAllTour() {
 		Tour[] arr = null;
-		String sql = "SELECT * FROM `Tour`;";
+		String sql = "SELECT * FROM Tour;";
 		try (Connection con = DBManager.getcon();) {
 			Statement statement = con.createStatement();
 			ResultSet rs = statement.executeQuery(sql);
@@ -116,7 +116,7 @@ public class TourDao {
 
 	public Tour getTourById(Integer i) {
 		Tour t = null;
-		String sql = "SELECT * FROM `Tour` WHERE `PackageId` = BINARY ? ;";
+		String sql = "SELECT * FROM Tour WHERE PackageId = BINARY ? ;";
 		try (Connection con = DBManager.getcon();) {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, i);
@@ -143,7 +143,7 @@ public class TourDao {
 
 //	public void Update(Tour t) {
 //		try (Connection con = DBManager.getcon();) {
-//			String sql = "UPDATE `Tour` SET `Password` = ?, `FullName` = ?, `MobileNumber` = ? WHERE `EmailId` = BINARY ?;";
+//			String sql = "UPDATE Tour SET Password = ?, FullName = ?, MobileNumber = ? WHERE EmailId = BINARY ?;";
 //			PreparedStatement ps = con.prepareStatement(sql);
 //			ps.setString(1, t.getPackageName());
 //			ps.setString(2, t.getPackageType());

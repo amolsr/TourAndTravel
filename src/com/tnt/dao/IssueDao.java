@@ -21,7 +21,7 @@ public class IssueDao {
 	public int create(Issue i) throws Exception {
 		int j = 0;
 		try (Connection con = DBManager.getcon();) {
-			String sql = "INSERT INTO `Issues`( UserEmail , Issue , Description ) VALUES(?, ?, ?) ";
+			String sql = "INSERT INTO Issues( UserEmail , Issue , Description ) VALUES(?, ?, ?) ";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, i.getUserEmail());
 			ps.setString(2, i.getIssue());
@@ -43,7 +43,7 @@ public class IssueDao {
 
 	public Issue[] getAllIssue() {
 		Issue[] arr = null;
-		String sql = "SELECT * FROM `Issues`;";
+		String sql = "SELECT * FROM Issues;";
 		try (Connection con = DBManager.getcon();) {
 			Statement statement = con.createStatement();
 			ResultSet rs = statement.executeQuery(sql);

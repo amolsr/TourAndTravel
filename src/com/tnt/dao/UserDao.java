@@ -20,7 +20,7 @@ public class UserDao {
 	public int create(User u) {
 		int i = 0;
 		try (Connection con = DBManager.getcon();) {
-			String sql = "INSERT INTO `Users` (`FullName`, `MobileNumber`, `EmailId`, `Password`) VALUES(?, ?, ?, ?) ";
+			String sql = "INSERT INTO Users (FullName, MobileNumber, EmailId, Password) VALUES(?, ?, ?, ?) ";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, u.getFullName());
 			ps.setString(2, u.getMobileNumber());
@@ -39,7 +39,7 @@ public class UserDao {
 	public String retrive(String email, String pass) {
 		try (Connection con = DBManager.getcon();) {
 			PreparedStatement ps = con
-					.prepareStatement("SELECT * FROM `Users` WHERE `EmailId` = BINARY ? AND `Password` = BINARY ?");
+					.prepareStatement("SELECT * FROM Users WHERE EmailId = BINARY ? AND Password = BINARY ?");
 			ps.setString(1, email);
 			ps.setString(2, pass);
 			ResultSet rs = ps.executeQuery();
@@ -54,7 +54,7 @@ public class UserDao {
 
 	public User[] getAllUser() {
 		User[] arr = null;
-		String sql = "SELECT * FROM `Users`;";
+		String sql = "SELECT * FROM Users;";
 		try (Connection con = DBManager.getcon();) {
 			Statement statement = con.createStatement();
 			ResultSet rs = statement.executeQuery(sql);
@@ -84,7 +84,7 @@ public class UserDao {
 
 //	public void Update(User u) {
 //		try (Connection con = DBManager.getcon();) {
-//			String sql = "UPDATE `Users` SET `Password` = ?, `FullName` = ?, `MobileNumber` = ? WHERE `EmailId` = BINARY ?;";
+//			String sql = "UPDATE Users SET Password = ?, FullName = ?, MobileNumber = ? WHERE EmailId = BINARY ?;";
 //			PreparedStatement statement = con.prepareStatement(sql);
 //			statement.setString(1, u.getPassword());
 //			statement.setString(2, u.getFullName());

@@ -21,7 +21,7 @@ public class BookingDao {
 	public int create(Booking b) throws Exception {
 		int i = 0;
 		try (Connection con = DBManager.getcon();) {
-			String sql = "INSERT INTO `Booking`( PackageId , UserEmail , Comment) VALUES(?, ?, ?) ";
+			String sql = "INSERT INTO Booking( PackageId , UserEmail , Comment) VALUES(?, ?, ?) ";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, b.getPackageId());
 			ps.setString(2, b.getUserEmail());
@@ -39,7 +39,7 @@ public class BookingDao {
 
 	public Booking getBookingById(Integer i) {
 		Booking b = null;
-		String sql = "SELECT * FROM `Booking` WHERE `BookingId` = BINARY ? ;";
+		String sql = "SELECT * FROM Booking WHERE BookingId = BINARY ? ;";
 		try (Connection con = DBManager.getcon();) {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, i);
@@ -63,7 +63,7 @@ public class BookingDao {
 
 	public Booking[] getAllBooking() {
 		Booking[] arr = null;
-		String sql = "SELECT * FROM `Booking`;";
+		String sql = "SELECT * FROM Booking;";
 		try (Connection con = DBManager.getcon();) {
 			Statement statement = con.createStatement();
 			ResultSet rs = statement.executeQuery(sql);
@@ -96,7 +96,7 @@ public class BookingDao {
 
 	public void Update(Booking b) {
 		try (Connection con = DBManager.getcon();) {
-			String sql = "UPDATE `Booking` SET `status` = ? , `CancelledBy` = ? WHERE `BookingId` = ? ;";
+			String sql = "UPDATE Booking SET status = ? , CancelledBy = ? WHERE BookingId = ? ;";
 			PreparedStatement statement = con.prepareStatement(sql);
 			statement.setString(1, b.getStatus());
 			statement.setString(2, b.getCancelledBy());

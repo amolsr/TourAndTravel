@@ -22,7 +22,7 @@ public class EnquiryDao {
 	public int create(Enquiry e) throws Exception {
 		int i = 0;
 		try (Connection con = DBManager.getcon();) {
-			String sql = "INSERT INTO `Issues`( UserEmail , Issue , Description,) VALUES(?, ?, ?) ";
+			String sql = "INSERT INTO Issues( UserEmail , Issue , Description,) VALUES(?, ?, ?) ";
 			PreparedStatement ps = con.prepareStatement(sql);
 //			ps.setString(1, e.getUserEmail());
 //			ps.setString(2, e.getIssue());
@@ -40,7 +40,7 @@ public class EnquiryDao {
 
 	public Enquiry[] getAllEnquiry() {
 		Enquiry[] arr = null;
-		String sql = "SELECT * FROM `Enquiry`;";
+		String sql = "SELECT * FROM Enquiry;";
 		try (Connection con = DBManager.getcon();) {
 			Statement statement = con.createStatement();
 			ResultSet rs = statement.executeQuery(sql);

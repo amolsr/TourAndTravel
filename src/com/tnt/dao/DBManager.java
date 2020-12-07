@@ -26,7 +26,7 @@ public class DBManager {
 
 	public static Integer[] count() {
 		Integer[] I = null;
-		String sql = "SELECT (SELECT COUNT(*) FROM `Users`) as Users, (SELECT COUNT(*) FROM `Booking`) as Booking, (SELECT COUNT(*) FROM `Enquiry`) as Enquiry, (SELECT COUNT(*) FROM `Tour`) as Tour, (SELECT COUNT(*) FROM `Issues`) as Issues;";
+		String sql = "SELECT (SELECT COUNT(*) FROM Users) as Users, (SELECT COUNT(*) FROM Booking) as Booking, (SELECT COUNT(*) FROM Enquiry) as Enquiry, (SELECT COUNT(*) FROM Tour) as Tour, (SELECT COUNT(*) FROM Issues) as Issues;";
 		try (Connection con = DBManager.getcon()) {
 			Statement statement = con.createStatement();
 			ResultSet rs = statement.executeQuery(sql);
