@@ -1,22 +1,8 @@
-# Importing JDK and copying required files
-FROM openjdk:12-jdk AS build
+FROM openjdk:12-jdk
+
 WORKDIR /app
 COPY pom.xml .
 COPY src src
 
-# Copy Maven wrapper
-COPY mvnw .
-COPY .mvn .mvn
-
-# Set execution permission for the Maven wrapper
-RUN chmod +x ./mvnw
-RUN ./mvnw clean package -DskipTests
-
-# Stage 2: Create the final Docker image using OpenJDK 19
-FROM openjdk:12-jdk
-VOLUME /tmp
-
-# Copy the JAR from the build stage
-COPY --from=build /app/target/*.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java", "$JAVA_OPTS", "-jar", "/app/target/dependency/webapp-runner.jar", "--port", "8080", "target/*.war"]
 EXPOSE 8080
