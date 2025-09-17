@@ -44,9 +44,9 @@ public class TourDao {
 
 	public Tour[] retriveFour() {
 		Tour[] arr = null;
-		String sql = "SELECT * from Tour order by rand() limit 4";
+		String sql = "SELECT * from Tour order by RANDOM() limit 4";
 		try (Connection con = DBManager.getcon();) {
-			Statement statement = con.createStatement();
+			Statement statement = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			ResultSet rs = statement.executeQuery(sql);
 			rs.last();
 			int totalRows = rs.getRow();
@@ -82,7 +82,7 @@ public class TourDao {
 		Tour[] arr = null;
 		String sql = "SELECT * FROM Tour;";
 		try (Connection con = DBManager.getcon();) {
-			Statement statement = con.createStatement();
+			Statement statement = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			ResultSet rs = statement.executeQuery(sql);
 			rs.last();
 			int totalRows = rs.getRow();
@@ -116,7 +116,7 @@ public class TourDao {
 
 	public Tour getTourById(Integer i) {
 		Tour t = null;
-		String sql = "SELECT * FROM Tour WHERE PackageId = BINARY ? ;";
+		String sql = "SELECT * FROM Tour WHERE PackageId = ? ;";
 		try (Connection con = DBManager.getcon();) {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, i);

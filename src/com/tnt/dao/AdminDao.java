@@ -37,7 +37,7 @@ public class AdminDao {
 	public String retrive(String user, String pass) {
 		try (Connection con = DBManager.getcon();) {
 			PreparedStatement ps = con
-					.prepareStatement("SELECT * FROM Admin WHERE User = BINARY ? AND Password = BINARY ?");
+					.prepareStatement("SELECT * FROM Admin WHERE \"User\" = ? AND Password = ?");
 			ps.setString(1, user);
 			ps.setString(2, pass);
 			ResultSet rs = ps.executeQuery();
@@ -52,7 +52,7 @@ public class AdminDao {
 
 	public void Update(Admin a) {
 		try (Connection con = DBManager.getcon();) {
-			String sql = "UPDATE Admin SET Password = ? WHERE User = BINARY ?;";
+			String sql = "UPDATE Admin SET Password = ? WHERE \"User\" = ?;";
 			PreparedStatement statement = con.prepareStatement(sql);
 			statement.setString(1, a.getPass());
 			statement.setString(2, a.getUser());

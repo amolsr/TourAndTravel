@@ -1,0 +1,46 @@
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:13
+    container_name: tourdb
+    environment:
+      POSTGRES_DB: tourdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - tour-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Tour and Travel Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tour-app
+    ports:
+      - "8080:8080"
+    environment:
+      DATABASE_HOST: jdbc:postgresql://postgres:5432/tourdb
+      DBUSER: postgres
+      DBPASS: password
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - tour-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  tour-network:
+    driver: bridge

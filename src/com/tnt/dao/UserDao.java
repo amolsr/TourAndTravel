@@ -39,7 +39,7 @@ public class UserDao {
 	public String retrive(String email, String pass) {
 		try (Connection con = DBManager.getcon();) {
 			PreparedStatement ps = con
-					.prepareStatement("SELECT * FROM Users WHERE EmailId = BINARY ? AND Password = BINARY ?");
+					.prepareStatement("SELECT * FROM Users WHERE EmailId = ? AND Password = ?");
 			ps.setString(1, email);
 			ps.setString(2, pass);
 			ResultSet rs = ps.executeQuery();
@@ -56,7 +56,7 @@ public class UserDao {
 		User[] arr = null;
 		String sql = "SELECT * FROM Users;";
 		try (Connection con = DBManager.getcon();) {
-			Statement statement = con.createStatement();
+			Statement statement = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			ResultSet rs = statement.executeQuery(sql);
 			rs.last();
 			int totalRows = rs.getRow();
