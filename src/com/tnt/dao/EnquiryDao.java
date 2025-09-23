@@ -22,14 +22,14 @@ public class EnquiryDao {
 	public int create(Enquiry e) throws Exception {
 		int i = 0;
 		try (Connection con = DBManager.getcon();) {
-			String sql = "INSERT INTO Issues( UserEmail , Issue , Description,) VALUES(?, ?, ?) ";
+			String sql = "INSERT INTO Enquiry( UserEmail , Issue , Description ) VALUES(?, ?, ?) ";
 			PreparedStatement ps = con.prepareStatement(sql);
-//			ps.setString(1, e.getUserEmail());
-//			ps.setString(2, e.getIssue());
+			ps.setString(1, e.getUserEmail());
+			ps.setString(2, e.getIssue());
 			ps.setString(3, e.getDescription());
 			i = ps.executeUpdate();
 			if (i > 0) {
-				System.out.println("A new Issue was inserted successfully!");
+				System.out.println("A new Enquiry was inserted successfully!");
 			}
 		} catch (Exception e1) {
 			e1.printStackTrace();
