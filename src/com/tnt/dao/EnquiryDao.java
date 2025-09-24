@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import com.tnt.model.Enquiry;
-import com.tnt.model.Issue;
 
 public class EnquiryDao {
 	private static EnquiryDao E = new EnquiryDao();
@@ -42,7 +41,7 @@ public class EnquiryDao {
 		Enquiry[] arr = null;
 		String sql = "SELECT * FROM Enquiry;";
 		try (Connection con = DBManager.getcon();) {
-			Statement statement = con.createStatement();
+			Statement statement = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			ResultSet rs = statement.executeQuery(sql);
 			rs.last();
 			int totalRows = rs.getRow();
@@ -70,7 +69,26 @@ public class EnquiryDao {
 		return arr;
 	}
 
-	public void update(Enquiry e) {
-
+	public int update(Enquiry e) throws Exception {
+		int j = 0;
+		try (Connection con = DBManager.getcon();) {
+			String sql = "UPDATE Enquiry SET FullName = ?, EmailId = ?, MobileNumber = ?, Subject = ?, Description = ?, Status = ? WHERE id = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, e.getFullName());
+			ps.setString(2, e.getEmailId());
+			ps.setString(3, e.getMobileNumber());
+			ps.setString(4, e.getSubject());
+			ps.setString(5, e.getDescription());
+			ps.setString(6, e.getStatus());
+			ps.setInt(7, e.getId());
+			j = ps.executeUpdate();
+			if (j > 0) {
+				System.out.println("Enquiry was updated successfully!");
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			throw ex;
+		}
+		return j;
 	}
 }

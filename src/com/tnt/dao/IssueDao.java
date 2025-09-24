@@ -37,15 +37,33 @@ public class IssueDao {
 		return j;
 	}
 
-	public void update(Issue i) {
-
+	public int update(Issue i) throws Exception {
+		int j = 0;
+		try (Connection con = DBManager.getcon();) {
+			String sql = "UPDATE Issues SET UserEmail = ?, Issue = ?, Description = ?, AdminRemark = ?, AdminremarkDate = ? WHERE id = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, i.getUserEmail());
+			ps.setString(2, i.getIssue());
+			ps.setString(3, i.getDescription());
+			ps.setString(4, i.getAdminRemark());
+			ps.setDate(5, new java.sql.Date(i.getAdminremarkDate() != null ? i.getAdminremarkDate().getTime() : System.currentTimeMillis()));
+			ps.setInt(6, i.getId());
+			j = ps.executeUpdate();
+			if (j > 0) {
+				System.out.println("Issue was updated successfully!");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return j;
 	}
 
 	public Issue[] getAllIssue() {
 		Issue[] arr = null;
 		String sql = "SELECT * FROM Issues;";
 		try (Connection con = DBManager.getcon();) {
-			Statement statement = con.createStatement();
+			Statement statement = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			ResultSet rs = statement.executeQuery(sql);
 			rs.last();
 			int totalRows = rs.getRow();

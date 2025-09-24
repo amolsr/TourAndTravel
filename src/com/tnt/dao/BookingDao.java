@@ -65,7 +65,7 @@ public class BookingDao {
 		Booking[] arr = null;
 		String sql = "SELECT * FROM Booking;";
 		try (Connection con = DBManager.getcon();) {
-			Statement statement = con.createStatement();
+			Statement statement = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			ResultSet rs = statement.executeQuery(sql);
 			rs.last();
 			int totalRows = rs.getRow();
