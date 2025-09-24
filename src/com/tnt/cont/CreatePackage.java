@@ -20,6 +20,8 @@ import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.tnt.dao.TourDao;
 import com.tnt.model.Tour;
@@ -31,6 +33,7 @@ import com.tnt.model.Tour;
 		@WebInitParam(name = "saveDir", value = "D:/FileUpload"),
 		@WebInitParam(name = "allowedTypes", value = "jpg,jpeg,gif,png") })
 public class CreatePackage extends HttpServlet {
+	private static final Logger logger = LoggerFactory.getLogger(CreatePackage.class);
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -65,9 +68,9 @@ public class CreatePackage extends HttpServlet {
 							if (!savePath.exists()) {
 								boolean status = savePath.mkdirs();
 								if (status) {
-									System.out.println("Directory Made");
+									logger.info("Directory created successfully: {}", savePath.getAbsolutePath());
 								} else {
-									System.out.println("Error in making Directory");
+									logger.error("Failed to create directory: {}", savePath.getAbsolutePath());
 								}
 							}
 							String FileName = System.currentTimeMillis() + ".jpg";

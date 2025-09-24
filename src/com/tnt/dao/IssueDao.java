@@ -5,9 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.tnt.model.Issue;
 
 public class IssueDao {
+	private static final Logger logger = LoggerFactory.getLogger(IssueDao.class);
 	private static IssueDao I = new IssueDao();
 
 	public static IssueDao getIssueDao() {
@@ -28,10 +32,10 @@ public class IssueDao {
 			ps.setString(3, i.getDescription());
 			j = ps.executeUpdate();
 			if (j > 0) {
-				System.out.println("A new Issue was inserted successfully!");
+				logger.info("A new Issue was inserted successfully!");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error creating issue: {}", e.getMessage(), e);
 			throw e;
 		}
 		return j;
@@ -50,10 +54,10 @@ public class IssueDao {
 			ps.setInt(6, i.getId());
 			j = ps.executeUpdate();
 			if (j > 0) {
-				System.out.println("Issue was updated successfully!");
+				logger.info("Issue was updated successfully!");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error updating issue: {}", e.getMessage(), e);
 			throw e;
 		}
 		return j;
@@ -85,7 +89,7 @@ public class IssueDao {
 			} else {
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error retrieving all issues: {}", e.getMessage(), e);
 		}
 		return arr;
 

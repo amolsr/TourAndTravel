@@ -6,9 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.tnt.model.Tour;
 
 public class TourDao {
+	private static final Logger logger = LoggerFactory.getLogger(TourDao.class);
 	private static TourDao T = new TourDao();
 
 	public static TourDao getTourDao() {
@@ -34,10 +38,10 @@ public class TourDao {
 			ps.setString(9, t.getPackageImage());
 			i = ps.executeUpdate();
 			if (i > 0) {
-				System.out.println("A new tour was inserted successfully!");
+				logger.info("A new tour was inserted successfully!");
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			logger.error("Error creating tour: {}", e.getMessage(), e);
 		}
 		return i;
 	}
@@ -72,8 +76,7 @@ public class TourDao {
 			} else {
 			}
 		} catch (Exception e) {
-			System.out.println("Dao " + e);
-			e.printStackTrace();
+			logger.error("Error retrieving four tours: {}", e.getMessage(), e);
 		}
 		return arr;
 	}
@@ -108,8 +111,7 @@ public class TourDao {
 			} else {
 			}
 		} catch (Exception e) {
-			System.out.println("Dao " + e);
-			e.printStackTrace();
+			logger.error("Error retrieving all tours: {}", e.getMessage(), e);
 		}
 		return arr;
 	}

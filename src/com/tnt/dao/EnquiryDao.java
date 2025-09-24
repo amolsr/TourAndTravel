@@ -5,9 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.tnt.model.Enquiry;
 
 public class EnquiryDao {
+	private static final Logger logger = LoggerFactory.getLogger(EnquiryDao.class);
 	private static EnquiryDao E = new EnquiryDao();
 
 	public static EnquiryDao getEnquiryDao() {
@@ -28,10 +32,10 @@ public class EnquiryDao {
 			ps.setString(3, e.getDescription());
 			i = ps.executeUpdate();
 			if (i > 0) {
-				System.out.println("A new Enquiry was inserted successfully!");
+				logger.info("A new Enquiry was inserted successfully!");
 			}
 		} catch (Exception e1) {
-			e1.printStackTrace();
+			logger.error("Error creating enquiry: {}", e1.getMessage(), e1);
 			throw e1;
 		}
 		return i;
@@ -64,7 +68,7 @@ public class EnquiryDao {
 			} else {
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error retrieving all enquiries: {}", e.getMessage(), e);
 		}
 		return arr;
 	}
@@ -83,10 +87,10 @@ public class EnquiryDao {
 			ps.setInt(7, e.getId());
 			j = ps.executeUpdate();
 			if (j > 0) {
-				System.out.println("Enquiry was updated successfully!");
+				logger.info("Enquiry was updated successfully!");
 			}
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			logger.error("Error updating enquiry: {}", ex.getMessage(), ex);
 			throw ex;
 		}
 		return j;

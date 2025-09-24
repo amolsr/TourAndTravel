@@ -5,9 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.tnt.model.Booking;
 
 public class BookingDao {
+	private static final Logger logger = LoggerFactory.getLogger(BookingDao.class);
 	private static BookingDao B = new BookingDao();
 
 	public static BookingDao getBookDao() {
@@ -28,10 +32,10 @@ public class BookingDao {
 			ps.setString(3, b.getComment());
 			i = ps.executeUpdate();
 			if (i > 0) {
-				System.out.println("A new Booking was inserted successfully!");
+				logger.info("A new Booking was inserted successfully!");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error creating booking: {}", e.getMessage(), e);
 			throw e;
 		}
 		return i;
@@ -56,7 +60,7 @@ public class BookingDao {
 				b.setCancelledBy(rs.getString("CancelledBy"));
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error retrieving booking by ID: {}", e.getMessage(), e);
 		}
 		return b;
 	}
@@ -88,8 +92,7 @@ public class BookingDao {
 			} else {
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
-
+			logger.error("Error retrieving all bookings: {}", e.getMessage(), e);
 		}
 		return arr;
 	}
@@ -103,10 +106,10 @@ public class BookingDao {
 			statement.setInt(3, b.getBookingId());
 			int rowsUpdated = statement.executeUpdate();
 			if (rowsUpdated > 0) {
-				System.out.println("An existing Booking was updated successfully!");
+				logger.info("An existing Booking was updated successfully!");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error updating booking: {}", e.getMessage(), e);
 		}
 	}
 }

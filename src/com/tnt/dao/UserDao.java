@@ -5,9 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.tnt.model.User;
 
 public class UserDao {
+	private static final Logger logger = LoggerFactory.getLogger(UserDao.class);
 	private static UserDao U = new UserDao();
 
 	public static UserDao getUserDao() {
@@ -28,10 +32,10 @@ public class UserDao {
 			ps.setString(4, u.getPassword());
 			i = ps.executeUpdate();
 			if (i > 0) {
-				System.out.println("A new user was inserted successfully!");
+				logger.info("A new user was inserted successfully!");
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			logger.error("Error creating user: {}", e.getMessage(), e);
 		}
 		return i;
 	}
@@ -47,7 +51,7 @@ public class UserDao {
 				return rs.getString("EmailId");
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			logger.error("Error retrieving user: {}", e.getMessage(), e);
 		}
 		return null;
 	}

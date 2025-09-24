@@ -7,15 +7,18 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DBManager {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+public class DBManager {
+	private static final Logger logger = LoggerFactory.getLogger(DBManager.class);
 	private static Connection con;
 
 	public static Connection getcon() throws SQLException {
 		try {
 			con = DriverManager.getConnection(System.getenv("DATABASE_HOST"), System.getenv("DBUSER"), System.getenv("DBPASS"));
 		} catch (Exception e) {
-			System.out.println(e);
+			logger.error("Error establishing database connection: {}", e.getMessage(), e);
 		}
 		return con;
 	}
@@ -42,7 +45,7 @@ public class DBManager {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error counting database records: {}", e.getMessage(), e);
 		}
 		return I;
 	}

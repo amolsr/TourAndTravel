@@ -8,12 +8,16 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Application Lifecycle Listener implementation class Initializer
  *
  */
 @WebListener
 public class Initializer implements ServletContextListener {
+	private static final Logger logger = LoggerFactory.getLogger(Initializer.class);
 
 	/**
 	 * Default constructor.
@@ -48,9 +52,9 @@ public class Initializer implements ServletContextListener {
 			stmt.executeUpdate(Book);
 			stmt.executeUpdate(Enquiry);
 			stmt.executeUpdate(Issue);
-			System.out.println(User + "\n" + Admin + "\n" + tour + "\n" + Book + "\n" + Enquiry + "\n" + Issue);
+			logger.info("Database tables created successfully: Users, Admin, Tour, Booking, Enquiry, Issues");
 		} catch (Exception e) {
-			System.out.println(e);
+			logger.error("Error initializing database tables: {}", e.getMessage(), e);
 		}
 	}
 }

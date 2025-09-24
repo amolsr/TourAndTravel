@@ -9,7 +9,12 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class ContactUs {
+	private static final Logger logger = LoggerFactory.getLogger(ContactUs.class);
+	
 	public static void main(String[] args) {
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.gmail.com");
@@ -35,7 +40,7 @@ public class ContactUs {
 
 			Transport.send(message);
 
-			System.out.println("Mail sent successfully!!!");
+			logger.info("Mail sent successfully!!!");
 
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);

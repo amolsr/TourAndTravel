@@ -4,9 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.tnt.model.Admin;
 
 public class AdminDao {
+	private static final Logger logger = LoggerFactory.getLogger(AdminDao.class);
 	private static AdminDao A = new AdminDao();
 
 	public static AdminDao getAdminDao() {
@@ -26,10 +30,10 @@ public class AdminDao {
 			ps.setString(2, a.getPass());
 			i = ps.executeUpdate();
 			if (i > 0) {
-				System.out.println("A new admin was inserted successfully!");
+				logger.info("A new admin was inserted successfully!");
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			logger.error("Error creating admin: {}", e.getMessage(), e);
 		}
 		return i;
 	}
@@ -45,7 +49,7 @@ public class AdminDao {
 				return rs.getString("User");
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			logger.error("Error retrieving admin: {}", e.getMessage(), e);
 		}
 		return null;
 	}
@@ -58,10 +62,10 @@ public class AdminDao {
 			statement.setString(2, a.getUser());
 			int rowsUpdated = statement.executeUpdate();
 			if (rowsUpdated > 0) {
-				System.out.println("An existing user was updated successfully!");
+				logger.info("An existing admin was updated successfully!");
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			logger.error("Error updating admin: {}", e.getMessage(), e);
 		}
 	}
 }
