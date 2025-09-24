@@ -27,7 +27,15 @@ public class CreateIssue extends HttpServlet {
 		Issue i = new Issue();
 		IssueDao I = IssueDao.getIssueDao();
 		HttpSession session = request.getSession();
-		i.setUserEmail(String.valueOf(session.getAttribute("Email")));
+		
+		// Check if user is logged in by validating session attribute
+		String userEmail = (String) session.getAttribute("Email");
+		if (userEmail == null) {
+			response.getWriter().print("Please login first.");
+			return;
+		}
+		
+		i.setUserEmail(userEmail);
 		i.setIssue(request.getParameter("issue"));
 		i.setDescription(request.getParameter("description"));
 		if (i.getIssue().equals("")) {
