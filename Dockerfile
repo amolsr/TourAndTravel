@@ -31,10 +31,15 @@ COPY --from=builder /app/target/dependency/webapp-runner.jar ./webapp-runner.jar
 # Expose port 8080
 EXPOSE 8080
 
-# Set environment variables
-ENV DATABASE_HOST="jdbc:postgresql://postgres:5432/tourdb"
-ENV DBUSER="postgres"
-ENV DBPASS="password"
+# Define build arguments
+ARG DATABASE_HOST
+ARG DBUSER
+ARG DBPASS
+
+# Set environment variables from build args
+ENV DATABASE_HOST=${DATABASE_HOST}
+ENV DBUSER=${DBUSER}
+ENV DBPASS=${DBPASS}
 
 # Start the application
 CMD ["java", "-jar", "webapp-runner.jar", "--port", "8080", "app.war"]
