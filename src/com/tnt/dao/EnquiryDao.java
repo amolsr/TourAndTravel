@@ -24,8 +24,8 @@ public class EnquiryDao {
 		try (Connection con = DBManager.getcon();) {
 			String sql = "INSERT INTO Enquiry( UserEmail , Issue , Description ) VALUES(?, ?, ?) ";
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, e.getUserEmail());
-			ps.setString(2, e.getIssue());
+			ps.setString(1, e.getEmailId());
+			ps.setString(2, e.getSubject());
 			ps.setString(3, e.getDescription());
 			i = ps.executeUpdate();
 			if (i > 0) {

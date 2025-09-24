@@ -140,3 +140,12 @@ Desktop.ini
 # ESLint
 ######################
 .eslintcache
+.settings/*
+.classpath
+.project
+.idea/
+.vscode/
+.DS_Store
+.svn/
+.gitignore
+.gitignore
