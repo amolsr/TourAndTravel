@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.tnt.dao.*;
 import com.tnt.model.User;
 
@@ -20,6 +23,7 @@ public class Login extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = -5363800644178880307L;
+	private static final Logger logger = LoggerFactory.getLogger(Login.class);
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		User u = new User();
@@ -35,7 +39,9 @@ public class Login extends HttpServlet {
 			}
 			u.setPassword(HashWord);
 		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+			logger.error("Error during password hashing", e);
+			response.getWriter().print("An error occurred. Please try again.");
+			return;
 		}
 
 		UserDao dao = UserDao.getUserDao();
@@ -49,7 +55,8 @@ public class Login extends HttpServlet {
 				response.getWriter().print("Invalid User");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error during login", e);
+			response.getWriter().print("An error occurred. Please try again.");
 		}
 	}
 

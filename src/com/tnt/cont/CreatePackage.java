@@ -118,9 +118,11 @@ public class CreatePackage extends HttpServlet {
 				t.setPackageImage(path);
 				T.create(t);
 			} catch (FileUploadException e) {
-				out.println(e);
+				logger.error("Error during file upload", e);
+				out.println("An error occurred during file upload. Please try again.");
 			} catch (Exception e) {
-				out.println(e);
+				logger.error("Error during package creation", e);
+				out.println("An error occurred. Please try again.");
 			}
 		} else {
 			out.println("Not Multipart");

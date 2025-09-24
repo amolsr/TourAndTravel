@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.tnt.dao.IssueDao;
 import com.tnt.model.Issue;
 
@@ -17,6 +20,7 @@ import com.tnt.model.Issue;
 @WebServlet("/CreateIssue")
 public class CreateIssue extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = LoggerFactory.getLogger(CreateIssue.class);
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -43,10 +47,11 @@ public class CreateIssue extends HttpServlet {
 		} else {
 			try {
 				I.create(i);
+				response.getWriter().print("Success");
 			} catch (Exception e) {
-				response.getWriter().print("Error");
+				logger.error("Error during issue creation", e);
+				response.getWriter().print("An error occurred. Please try again.");
 			}
-			response.getWriter().print("Success");
 		}
 	}
 

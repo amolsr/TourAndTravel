@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.tnt.dao.AdminDao;
 import com.tnt.model.Admin;
 
@@ -21,6 +24,7 @@ import com.tnt.model.Admin;
 @WebServlet("/Admin/LogIn")
 public class AdminLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = LoggerFactory.getLogger(AdminLogin.class);
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -37,7 +41,9 @@ public class AdminLogin extends HttpServlet {
 			}
 			a.setPass(HashWord);
 		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+			logger.error("Error during password hashing", e);
+			response.getWriter().print("An error occurred. Please try again.");
+			return;
 		}
 
 		AdminDao dao = AdminDao.getAdminDao();
@@ -51,7 +57,8 @@ public class AdminLogin extends HttpServlet {
 				response.getWriter().print("Invalid User");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error during admin login", e);
+			response.getWriter().print("An error occurred. Please try again.");
 		}
 	}
 
@@ -71,7 +78,9 @@ public class AdminLogin extends HttpServlet {
 			}
 			a.setPass(HashWord);
 		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+			logger.error("Error during password hashing in doGet", e);
+			resp.getWriter().print("An error occurred. Please try again.");
+			return;
 		}
 		if (!((a.getUser().equals("")) || (a.getPass().equals("")))) {
 			int i = A.create(a);

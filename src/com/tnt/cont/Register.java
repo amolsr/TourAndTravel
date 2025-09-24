@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.tnt.dao.UserDao;
 import com.tnt.model.User;
 
@@ -21,6 +24,7 @@ public class Register extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = -4456636163296084835L;
+	private static final Logger logger = LoggerFactory.getLogger(Register.class);
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -40,7 +44,9 @@ public class Register extends HttpServlet {
 			}
 			u.setPassword(HashWord);
 		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+			logger.error("Error during password hashing", e);
+			response.getWriter().print("An error occurred. Please try again.");
+			return;
 		}
 		if (!((u.getFullName().equals("")) || (u.getMobileNumber().equals("")) || (u.getEmailId().equals(""))
 				|| (u.getPassword().equals("")))) {

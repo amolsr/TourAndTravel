@@ -43,7 +43,8 @@ public class ContactUs {
 			logger.info("Mail sent successfully!!!");
 
 		} catch (MessagingException e) {
-			throw new RuntimeException(e);
+			logger.error("Error sending email", e);
+			throw new RuntimeException("Failed to send email. Please try again later.", e);
 		}
 	}
 }

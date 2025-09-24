@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.tnt.dao.BookingDao;
 import com.tnt.model.Booking;
 
@@ -17,6 +20,7 @@ import com.tnt.model.Booking;
 @WebServlet("/CreateBooking")
 public class CreateBooking extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = LoggerFactory.getLogger(CreateBooking.class);
 
 	/**
 	 * @throws IOException
@@ -35,10 +39,11 @@ public class CreateBooking extends HttpServlet {
 		} else {
 			try {
 				B.create(b);
+				response.getWriter().print("Success");
 			} catch (Exception e) {
-				response.getWriter().print("Error");
+				logger.error("Error during booking creation", e);
+				response.getWriter().print("An error occurred. Please try again.");
 			}
-			response.getWriter().print("Success");
 		}
 	}
 }
