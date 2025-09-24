@@ -16,15 +16,22 @@ public class DBManager {
 
 	public static Connection getcon() throws SQLException {
 		try {
+			// Check if existing connection is valid before creating a new one
+			if (con != null && !con.isClosed()) {
+				return con;
+			}
 			con = DriverManager.getConnection(System.getenv("DATABASE_HOST"), System.getenv("DBUSER"), System.getenv("DBPASS"));
 		} catch (Exception e) {
-			logger.error("Error establishing database connection: {}", e.getMessage(), e);
+			logger.error("Failed to create database connection", e);
+			throw new SQLException("Database connection failed", e);
 		}
 		return con;
 	}
 
-	public void closeConnection() throws SQLException {
-		con.close();
+	public static void closeConnection() throws SQLException {
+		if (con != null && !con.isClosed()) {
+			con.close();
+		}
 	}
 
 	public static Integer[] count() {
